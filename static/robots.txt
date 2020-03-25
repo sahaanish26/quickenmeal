@@ -2,4 +2,6 @@ User-agent: *
 Disallow: */tags/
 Disallow: */categories/
 
-sitemap: https://vagr9k.github.io/gatsby-material-starter/sitemap.xml
+#sitemap1: https://vagr9k.github.io/gatsby-material-starter/sitemap.xml
+sitemap: https://quickenmeal.com/sitemap.xml
+
