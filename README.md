@@ -86,7 +86,7 @@ NOTE: You can access the v1 version of the starter via the [`v1` branch](https:/
 
 NOTE: Take a look at [gatsby-advanced-starter](https://github.com/Vagr9K/gatsby-advanced-starter) if you prefer building UI from scratch and/or only interested in fundamental features.
 
-You can also visit [my personal blog](https://vagr9k.me) if you want to see a fully implemented blog based on this starter.
+You can also visit [my personal blog](https://quickenmeal.com) if you want to see a fully implemented blog based on this starter.
 
 ![Article Screenshot](docs/screenshot-article.png)
 ![Mobile Screenshot](docs/screenshot-mobile.png)
@@ -208,4 +208,4 @@ $md-tertiary-color: $md-grey-300;
 
 # Author
 
-Ruben Harutyunyan ([@Vagr9K](https://twitter.com/Vagr9K))
+Anish Kumar Saha ([@Anish](https://www.linkedin.com/in/anishksaha/))
