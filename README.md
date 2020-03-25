@@ -6,7 +6,7 @@
     <img src="docs/logo.png" alt="Logo" width='200px' height='200px'/>
 </div>
 
-# Gatsby Material Starter
+# Website built with Gatsby Material Starter
 
 A blog starter with Material design in mind for [Gatsby](https://github.com/gatsbyjs/gatsby/).
 
