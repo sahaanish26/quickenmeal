@@ -1,0 +1,29 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+      nodejs: 13
+    commands:
+      - 'touch .npmignore'
+      - 'npm install -g gatsby'
+      - 'npm install -g gatsby-cli'
+  pre_build:
+    commands:
+      - 'npm run-script clean'
+      - 'npm install'
+      - 'npm ci --production'
+  build:
+    commands:
+      - 'npm run-script build'
+  post_build:
+    commands:
+      - 'npm run-script deploy'
+artifacts:
+  base-directory: public
+  files:
+    - '**/*'
+  discard-paths: no
+cache:
+  paths:
+    - '.cache/*'
+    - 'public/*'
