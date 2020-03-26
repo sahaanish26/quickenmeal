@@ -10,7 +10,7 @@
 
 A blog starter with Material design in mind for [Gatsby](https://github.com/gatsbyjs/gatsby/).
 
-[Demo website.](https://quickenmeal.com)
+[Demo website](https://quickenmeal.com)
 
 ![Screenshot](docs/Screen_Shot.png)
 
