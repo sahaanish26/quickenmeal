@@ -8,9 +8,10 @@ const config = {
   fixedFooter: false, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "A cooking recipe website with Material design in mind.", // Website description used for RSS feeds/meta description tag.
   siteRss: "/rss.xml", // Path to the RSS file.
-  siteRssTitle: "Gatsby Material Starter RSS feed", // Title of the RSS feed
+  siteRssTitle: "Gatsby Recipe Starter RSS feed", // Title of the RSS feed
   siteFBAppID: "182535625111526t", // FB Application ID for using app insights
   siteGATrackingID: "UA-47311644-f", // Tracking code ID for google analytics.
+  siteVerification:"ld0WW9ivPWz55IGmdc9GHRRMlL0ZzGZ6WnmHYbzKvHo", //Site verification for google
   disqusShortname: "TBD", // Disqus shortname.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "MM/DD/YYYY", // Date format for display.
