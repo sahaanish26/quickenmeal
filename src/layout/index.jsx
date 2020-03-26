@@ -14,6 +14,8 @@ export default class MainLayout extends React.Component {
         <div>
           <Helmet>
             <meta name="description" content={config.siteDescription} />
+            <meta name="google-site-verification" content={config.siteVerification} />
+
           </Helmet>
           {children}
         </div>

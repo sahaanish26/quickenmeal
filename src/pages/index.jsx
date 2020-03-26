@@ -13,8 +13,9 @@ class Index extends React.Component {
       <Layout location={this.props.location} title="Home">
         <div className="index-container">
           <Helmet>
-            <title>{config.siteTitle}</title>
+            <title>{config.siteTitleAlt}</title>
             <link rel="canonical" href={`${config.siteUrl}`} />
+
           </Helmet>
           <SEO postEdges={postEdges} />
           <PostListing postEdges={postEdges} />
