@@ -1,7 +1,7 @@
 const config = {
-  siteTitle: "Delicious and Quick meal Recipe", // Site title.
+  siteTitle: " Quick Meal Recipe", // Site title.
   siteTitleShort: "Recipe Site", // Short site title for homescreen (PWA). Preferably should be under 12 characters to prevent truncation.
-  siteTitleAlt: "Bengali style food recipes  for delicious yet quick Meals", // Alternative site title for SEO.
+  siteTitleAlt: "Bengali style food recipes for delicious yet quick Meals", // Alternative site title for SEO.
   siteLogo: "/logos/logo.png", // Logo used for SEO and manifest.
   siteUrl: "https://quickenmeal.com", // Domain of your website without pathPrefix.
   pathPrefix: "/recipes", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
