@@ -28,12 +28,18 @@ class Footer extends Component {
               </Button>
             </Link>
           </div>
-          <div className="based-on">
+          {/*<div className="based-on">
             <h4>
               Based on{" "}
               <a href="https://github.com/Vagr9K/gatsby-material-starter">
                 Gatsby Material Starter
               </a>.
+            </h4>
+          </div>*/}
+          <div className="based-on">
+            <h4>
+              <a href="https://aws.amazon.com/what-is-cloud-computing">
+                <img src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing"/></a>
             </h4>
           </div>
         </div>
