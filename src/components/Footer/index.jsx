@@ -36,6 +36,14 @@ class Footer extends Component {
               </a>.
             </h4>
           </div>*/}
+          <div className="built-on">
+            <h4>
+              {/*Built on*/}
+              <a href="https://www.gatsbyjs.org/">
+                <img src={config.gatsbyLogo} alt="Built on Gatsby"/>
+              </a>
+            </h4>
+          </div>
           <div className="based-on">
             <h4>
               <a href="https://aws.amazon.com/what-is-cloud-computing">
