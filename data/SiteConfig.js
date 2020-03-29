@@ -24,10 +24,10 @@ const config = {
     "We like to do creative things that brings delight to everyone's life" ,
         // Links to social profiles/projects you want to display in the author segment/navigation bar.
   userLinks: [
-    {
+    /*{
       label: "GitHub",
       url: "https://github.com/sahaanish26/quickenmeal",
-      iconClassName: "fa fa-github"
+      iconClassName: "fa fa-github" //https://fontawesome.com/v4.7.0/icons/
     },
     {
       label: "Twitter",
@@ -38,7 +38,22 @@ const config = {
       label: "Email",
       url: "mailto:srimoyeesaha@gmail.com",
       iconClassName: "fa fa-envelope"
-    }
+    },*/
+    {
+      label: "Meal Time/Type",
+      url: "mailto:srimoyeesaha@gmail.com",
+      iconClassName: "fa fa-clock-o"
+    },
+    {
+      label: "Cuisine",
+      url: "mailto:srimoyeesaha@gmail.com",
+      iconClassName: "fa fa-globe"
+    },
+    {
+      label: "Primary Ingredient",
+      url: "mailto:srimoyeesaha@gmail.com",
+      iconClassName: "fa fa-envelope-open-o"
+    },
   ],
   copyright: "Copyright © 2020. Quicken Meal" ,
   gatsbyLogo:"/logos/gatsbylogoscreenshot.png"// Copyright string for the footer of the website and RSS feed.
