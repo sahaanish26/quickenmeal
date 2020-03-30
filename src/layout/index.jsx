@@ -5,11 +5,13 @@ import Navigation from "../components/Navigation";
 import config from "../../data/SiteConfig";
 import "./index.scss";
 import "./global.scss";
+import { BrowserRouter } from 'react-router-dom';
 
-export default class MainLayout extends React.Component {
+export default  class MainLayout extends React.Component {
   render() {
     const { children } = this.props;
     return (
+        <BrowserRouter>
       <Navigation config={config} LocalTitle={this.props.title}>
         <div>
           <Helmet>
@@ -20,6 +22,7 @@ export default class MainLayout extends React.Component {
           {children}
         </div>
       </Navigation>
+        </BrowserRouter>
     );
   }
-}
+};
