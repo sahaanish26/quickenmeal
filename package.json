@@ -42,7 +42,8 @@
     "react-md": "^1.14.1",
     "react-share": "^4.0.1",
     "react-twitter-widgets": "^1.7.1",
-    "url-join": "^4.0.1"
+    "url-join": "^4.0.1",
+    "react-router-dom": "latest"
   },
   "devDependencies": {
     "cli-glob": "^0.1.0",
@@ -79,7 +80,6 @@
     "write-good": "write-good $(glob 'content/posts/**/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "deploy": "gatsby-plugin-s3 deploy --yes && aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION --paths \"/*\""
-
   },
   "remarkConfig": {
     "plugins": [
