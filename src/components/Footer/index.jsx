@@ -15,8 +15,8 @@ class Footer extends Component {
     }
     return (
       <footer className={fixedFooter ? "footer footer-fixed" : "footer"}>
-        {userLinks ? <UserLinks config={config} labeled /> : null}
-        <div className="notice-container">
+        {/*{userLinks ? <UserLinks config={config} labeled /> : null}
+*/}        <div className="notice-container">
           <div className="copyright">
             <h4>{copyright}</h4>
           </div>
@@ -28,12 +28,26 @@ class Footer extends Component {
               </Button>
             </Link>
           </div>
-          <div className="based-on">
+          {/*<div className="based-on">
             <h4>
               Based on{" "}
               <a href="https://github.com/Vagr9K/gatsby-material-starter">
                 Gatsby Material Starter
               </a>.
+            </h4>
+          </div>*/}
+          <div className="built-on">
+            <h4>
+              {/*Built on*/}
+              <a href="https://www.gatsbyjs.org/">
+                <img src={config.gatsbyLogo} alt="Built on Gatsby"/>
+              </a>
+            </h4>
+          </div>
+          <div className="based-on">
+            <h4>
+              <a href="https://aws.amazon.com/what-is-cloud-computing">
+                <img src="https://d0.awsstatic.com/logos/powered-by-aws.png" alt="Powered by AWS Cloud Computing"/></a>
             </h4>
           </div>
         </div>
