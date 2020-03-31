@@ -5,6 +5,7 @@ import { Avatar, FontIcon, ListItem } from 'react-md';
 
 import { routeRef, scrollIntoView } from './scrollIntoView';
 
+
 const Link = ({ label, to, exact, icon, href, avatar, routes }) => (
     <Route path={to} exact={exact} ref={routeRef}>
         {({ match }) => {
@@ -31,6 +32,7 @@ const Link = ({ label, to, exact, icon, href, avatar, routes }) => (
 
             const active = !!match && !href;
 
+
             return (
                 <ListItem
                     key={href || to}
@@ -43,7 +45,8 @@ const Link = ({ label, to, exact, icon, href, avatar, routes }) => (
                     leftIcon={leftIcon}
                     nestedItems={nestedItems}
                     defaultVisible={routes && !!match}
-                    ref={active && !routes && scrollIntoView}
+                    userref={active && !routes && scrollIntoView}
+                   /* ref={active && !routes && scrollIntoView}*/
                 />
             );
         }}
