@@ -16,12 +16,12 @@ function toNavItem(route, parents = []) {
     }
 
     const { divider, subheader, ...others } = route;
-    if (divider) {
+    /*if (divider) {
         return { divider, key: 'divider', ...others };
     } else if (subheader) {
         return { subheader, ...others, key: others.label };
-    }
-
+    }*/
+    return { subheader, ...others, key: others.label };
     let { to, label, routes } = others;
     if (to === '') {
         label = 'Home';

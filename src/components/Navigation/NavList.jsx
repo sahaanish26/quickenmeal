@@ -8,7 +8,7 @@ function GetNavList(config) {
       primaryText: "Home",
       leftIcon: <FontIcon iconClassName="fa fa-book"/>,
       component: Link,
-      to: "/"
+      to: "/",
     },
     {
       divider: true
@@ -21,7 +21,14 @@ function GetNavList(config) {
         primaryText: link.label,
         leftIcon: <FontIcon forceSize iconClassName={link.iconClassName} />,
         component: "a",
-        href: link.url
+        href: link.url,
+        items: [
+          {
+            name:'subnav',
+            link:'/subnav',
+          }
+        ]
+
       });
     });
   }

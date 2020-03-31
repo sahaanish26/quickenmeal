@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link as RouterLink, Route } from 'react-router-dom';
+import { Link as RouterLink,Router } from "gatsby" ;
 import { Avatar, FontIcon, ListItem } from 'react-md';
 
 import { routeRef, scrollIntoView } from './scrollIntoView';
 
 
 const Link = ({ label, to, exact, icon, href, avatar, routes }) => (
-    <Route path={to} exact={exact} ref={routeRef}>
+    <Router path={to} exact={exact} useref={routeRef}>
         {({ match }) => {
             let leftIcon;
             let component;
@@ -50,7 +50,7 @@ const Link = ({ label, to, exact, icon, href, avatar, routes }) => (
                 />
             );
         }}
-    </Route>
+    </Router>
 );
 Link.propTypes = {
     label: PropTypes.string.isRequired,

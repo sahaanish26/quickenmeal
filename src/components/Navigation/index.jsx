@@ -19,13 +19,13 @@ class Navigation extends Component {
 
           toolbarTitle={LocalTitle}
         contentClassName="main-content"
-          navItems={navItems.map(({ divider, subheader, ...route }) => {
+        /*  navItems={navItems.map(({ divider, subheader, ...route }) => {
             if (divider || subheader) {
               return { divider, subheader, ...route };
             }
             return <Link {...route} />;
-          })}
-      //  navItems={GetNavList(config)}
+          })}*/
+       navItems={GetNavList(config)}
         mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
         tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
         desktopDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}

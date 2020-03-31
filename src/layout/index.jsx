@@ -11,7 +11,7 @@ export default  class MainLayout extends React.Component {
   render() {
     const { children } = this.props;
     return (
-        <BrowserRouter>
+
       <Navigation config={config} LocalTitle={this.props.title}>
         <div>
           <Helmet>
@@ -22,7 +22,7 @@ export default  class MainLayout extends React.Component {
           {children}
         </div>
       </Navigation>
-        </BrowserRouter>
+
     );
   }
 };
