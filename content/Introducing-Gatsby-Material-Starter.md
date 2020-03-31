@@ -1,7 +1,9 @@
 ---
+templateKey: index_001
 title: "Chingrir Malaikari"
 cover: "Golda-Chingri-Malaikari.png"
 category: "gatsby"
+slug: "Chingrir Malaikari"
 tags:
 
     - prawn
