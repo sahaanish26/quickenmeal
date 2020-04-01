@@ -3,7 +3,6 @@ templateKey: index_001
 title: "Chingrir Malaikari"
 cover: "Golda-Chingri-Malaikari.png"
 category: "gatsby"
-slug: "Chingrir Malaikari"
 tags:
 
     - prawn
@@ -13,7 +12,7 @@ tags:
     - coconut
     - non-veg
 
-date: "2020-03-31"
+date: "2020-04-01"
 description: >
   guide to prepare one of the most exotic dish out of Prawn.It will definitely
   be a  finger licking dish.
