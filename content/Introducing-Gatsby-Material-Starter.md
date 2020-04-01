@@ -8,9 +8,15 @@ tags:
 
     - prawn
     - curry
-    - starter
+    - main course
+    - lunch/dinner
+    - coconut
+    - non-veg
 
-date: "2018-07-02"
+date: "2020-03-31"
+description: >
+  guide to prepare one of the most exotic dish out of Prawn.It will definitely
+  be a  finger licking dish.
 ---
 
 Around a year ago, this project was one of the first ones ported to the `v1` version of GatsbyJS.
