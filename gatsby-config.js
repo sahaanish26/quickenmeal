@@ -243,7 +243,7 @@ module.exports = {
             title: (node) => node.frontmatter.title,
             description: (node) => node.frontmatter.description,
             content: (node) => node.rawMarkdownBody,
-            url: (node) => mapPostsUrls[node.frontmatter.templateKey],
+            url: (node) => node.frontmatter.slug,
           },
         },
       },
