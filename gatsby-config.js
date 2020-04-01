@@ -4,9 +4,7 @@ const config = require("./data/SiteConfig");
 const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/;
 const targetAddress = new URL(process.env.TARGET_ADDRESS || `http://quickenmeal.com`);
 const { isNil } = require('lodash');
-const mapPostsUrls = {
-  index: '/',
-};
+
 
 
 module.exports = {
