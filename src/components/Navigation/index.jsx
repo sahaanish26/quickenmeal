@@ -15,17 +15,16 @@ class Navigation extends Component {
     return (
       <NavigationDrawer
           drawerId="main-navigation"
-        drawerTitle={config.siteTitle}
-
+          drawerTitle={config.siteTitle}
           toolbarTitle={LocalTitle}
-        contentClassName="main-content"
+          contentClassName="main-content"
         /*  navItems={navItems.map(({ divider, subheader, ...route }) => {
             if (divider || subheader) {
               return { divider, subheader, ...route };
             }
             return <Link {...route} />;
           })}*/
-       navItems={GetNavList(config)}
+        navItems={GetNavList(config)}
         mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
         tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
         desktopDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
