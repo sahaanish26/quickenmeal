@@ -1,5 +1,6 @@
 import React, { Component } from 'react' ;
 import { Link } from 'gatsby' ;
+import "./Search.scss" ;
 
 class Search extends Component {
     state = {
@@ -9,7 +10,7 @@ class Search extends Component {
 
     render() {
         return (
-            <div className='link_bold'>
+            <div className='search'>
                 <input className='search__input'
                        type='text'
                        value={this.state.query}
