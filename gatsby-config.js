@@ -231,6 +231,9 @@ module.exports = {
           { name: 'description', store: true },
           { name: 'content', store: true },
           { name: 'url', store: true },
+          { name: 'category', store: true },
+          { name: 'tags', store: true },
+
         ],
         // A function for filtering nodes. () => true by default
         filterNodes: (node) => !isNil(node.frontmatter),
@@ -241,9 +244,13 @@ module.exports = {
             title: (node) => node.frontmatter.title,
             description: (node) => node.frontmatter.description,
             content: (node) => node.rawMarkdownBody,
-            url: (node) => node.frontmatter.slug,
+            url: (node) => node.fields.slug,
+            category: (node) => node.frontmatter.category,
+            tags: (node) => node.frontmatter.tags,
+
           },
         },
+        filename: 'search_index.json',
       },
     }
   ]
