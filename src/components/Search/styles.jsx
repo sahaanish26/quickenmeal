@@ -105,13 +105,14 @@ export const HitsWrapper = styled.div`
   header {
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px solid ${props => props.theme.darkGray};
+    border-bottom: 2px solid darkgray; /*${props => props.theme.darkGray};*/
     margin-bottom: 0.8em;
+    color: black;
     h3 {
       color: white;
-      background: ${props => props.theme.lightGreen};
+      background: #0fc5b6; /*${props => props.theme.lightGreen};*/
       padding: 0.1em 0.4em;
-      border-radius: ${props => props.theme.smallBorderRadius};
+      border-radius: 0.2em; /*${props => props.theme.smallBorderRadius};*/
       margin-bottom: 0.3em;
     }
   }
@@ -131,3 +132,35 @@ export const PoweredBy = () => (
     </a>
   </span>
 )
+
+
+/*
+blue: `#2A4FA8`,
+    darkBlue: `#002e9d`,
+    lightBlue: `#97C9F4`,
+
+    lightGreen: `#0fc5b6`,
+
+    orange: `#ecb517`,
+
+    yellow: `#fffa00`,
+
+    lightestGray: `#fafafa`,
+    lighterGray: `#f1f1f1`,
+    lightGray: `#dcdcdc`,
+    gray: `#2b363f`,
+    darkGray: `#1d242a`,
+
+    maxWidth: `40em`,
+
+    smallBorder: `0.1em`,
+    mediumBorder: `0.15em`,
+    largeBorder: `0.2em`,
+
+    smallBorderRadius: `0.2em`,
+    mediumBorderRadius: `0.5em`,
+    largeBorderRadius: `1em`,
+
+    shortTrans: `0.3s`,
+    mediumTrans: `0.6s`,
+    longTrans: `1s`,*/
