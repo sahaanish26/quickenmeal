@@ -4,7 +4,6 @@ title: "Chingrir Malaikari"
 cover: "Golda-Chingri-Malaikari.png"
 category: "gatsby"
 tags:
-
     - prawn
     - curry
     - main course
