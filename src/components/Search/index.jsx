@@ -84,9 +84,15 @@ class Search extends Component {
                             </header>
                     {this.state.results.map(post => (
                         <ListGroup.Item variant="success">
+                            <div>
                             <li key={post.id}>
-                                <Link to={post.url}>{post.title}</Link>
+                                <Link to={post.url}>
+
+                                        {post.title}
+
+                                </Link>
                             </li>
+                            </div>
                         </ListGroup.Item>
                     ))}
                 </HitsWrapper>
