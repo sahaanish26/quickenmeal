@@ -64,7 +64,7 @@ export const Input = styled.input`
   font-size: 1em;
   background: transparent;
   transition: 0.3s;
-  border-radius: ${props => props.theme.smallBorderRadius};
+  border-radius: 0.2em; /*${props => props.theme.smallBorderRadius};*/
   ${props => (props.collapse ? collapsed : expanded)};
 `
 
@@ -87,7 +87,7 @@ export const HitsWrapper = styled.div`
   box-shadow: 0 0 5px 0;
   padding: 0.7em 1em 0.4em;
   background: white;
-  border-radius: ${props => props.theme.smallBorderRadius};
+  border-radius: 0.2em; /*${props => props.theme.smallBorderRadius};*/
   * {
     margin-top: 0;
   }
@@ -96,7 +96,7 @@ export const HitsWrapper = styled.div`
   }
   div + div {
     margin-top: 0.6em;
-    border-top: 1px solid ${props => props.theme.lighterGray};
+    border-top: 1px solid #f1f1f1 ; /*${props => props.theme.lighterGray};*/
   }
   mark {
     color: ${props => props.theme.lightBlue};
