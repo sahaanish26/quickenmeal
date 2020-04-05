@@ -1,18 +1,7 @@
 import React, { Component } from 'react' ;
 import { Link } from 'gatsby' ;
 import "./Search.scss" ;
-import{
-    FormControl,
-    Button,
-    ListGroup,
-    ListGroupItem,
-    FormGroup,
-    FormLabel,
-    Col,
-    Table,
-    InputGroup
-} from 'react-bootstrap';
-import {Badge} from "react-md";
+import{ListGroup} from 'react-bootstrap';
 import { Form, Input, SearchIcon,HitsWrapper,Root } from './styles'
 
 
@@ -103,21 +92,13 @@ class Search extends Component {
     }
 
    getSearchResults(query) {
-       console.log("getSearchResults");
         if (!query || !window.__LUNR__) return []
         const results = window.__LUNR__.en.index.search(query)
-       console.log(results);
-       const posts = results.map(({ ref }) => window.__LUNR__.en.store[ref]);
-       console.log(posts);
        return results.map(({ ref }) => window.__LUNR__.en.store[ref])
-
-
-
     }
 
     search = event => {
         const query = event.target.value
-        console.log(query);
         const results = this.getSearchResults(query)
         this.setState({ results, query })
     }
