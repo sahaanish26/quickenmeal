@@ -60,7 +60,7 @@ const expanded = css`
 
 export const Input = styled.input`
   outline: 1;
-  border: none;
+  border: 1;
   font-size: 1em;
   background: transparent;
   transition: 0.3s;
