@@ -13,7 +13,7 @@ import{
     InputGroup
 } from 'react-bootstrap';
 import {Badge} from "react-md";
-import { Form, Input, SearchIcon } from './styles'
+import { Form, Input, SearchIcon,HitsWrapper,Root } from './styles'
 
 
 
@@ -53,8 +53,8 @@ class Search extends Component {
 
     render() {
         return (
-
             <div className="searchForm">
+                <Root>
                 <Form>
                 <Input
                     type="text"
@@ -67,7 +67,7 @@ class Search extends Component {
                 />
                 <SearchIcon />
                 </Form>
-                <ListGroup variant="flush" className="searchResults">
+                {/*<ListGroup variant="flush" className="searchResults">
                     {this.state.results.map(post => (
                         <ListGroup.Item variant="success">
                             <li key={post.id}>
@@ -75,9 +75,24 @@ class Search extends Component {
                             </li>
                         </ListGroup.Item>
                     ))}
-                </ListGroup>
-
+                </ListGroup>*/}
+                <HitsWrapper show={this.state.query.length > 0 }>
+                            <header>
+                                <h3>Recipes</h3>
+                                <div>{this.state.results.length} result{this.state.results.length > 1 ? `s` : ``} found
+                                         {this.state.results.length == 0 ?  '  for   ' + this.state.query : ``}</div>
+                            </header>
+                    {this.state.results.map(post => (
+                        <ListGroup.Item variant="success">
+                            <li key={post.id}>
+                                <Link to={post.url}>{post.title}</Link>
+                            </li>
+                        </ListGroup.Item>
+                    ))}
+                </HitsWrapper>
+                </Root>
             </div>
+
         )
     }
 
