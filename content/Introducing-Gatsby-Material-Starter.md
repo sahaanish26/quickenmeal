@@ -1,7 +1,7 @@
 ---
 templateKey: index_001
-title: "Chingrir Malaikari"
-cover: "Golda-Chingri-Malaikari.png"
+title: "Chilly Prawn"
+cover: "chilly-prawn.png"
 category: "gatsby"
 tags:
     - prawn
