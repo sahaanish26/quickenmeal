@@ -42,7 +42,7 @@ class PostPreview extends Component {
     const { mobile } = this.state;
     const expand = mobile;
     /* eslint no-undef: "off" */
-    const coverHeight = mobile ? 162 : 350;
+    const coverHeight = mobile ? 162 : 320;
     return (
       <Card key={postInfo.path} raise className="md-grid md-cell md-cell--12">
         <Link style={{ textDecoration: "none" }} to={postInfo.path}>
