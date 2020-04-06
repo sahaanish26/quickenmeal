@@ -65,9 +65,8 @@ class PostPreview extends Component {
           )}`}
           subtitle={`${postInfo.timeToRead} min read`}
         />
-
         <CardText expandable={expand}>
-          {postInfo.excerpt}
+          {postInfo.description}
           <PostTags tags={postInfo.tags} />
         </CardText>
       </Card>
