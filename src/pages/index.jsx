@@ -32,7 +32,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(
       limit: 2000
       sort: { fields: [fields___date], order: DESC }
-    ) {
+    ){
       edges {
         node {
           fields {
@@ -46,9 +46,37 @@ export const pageQuery = graphql`
             tags
             cover
             date
+            description
           }
         }
       }
     }
   }
 `;
+
+/*sample query with filter implementation
+query IndexQuery {
+  allMarkdownRemark(
+      limit: 2000
+  sort: { fields: [fields___date], order: DESC }
+  filter: {frontmatter: {tags: {eq: "prawn"}}}
+
+){
+    edges {
+      node {
+        fields {
+          slug
+          date
+        }
+        excerpt
+        timeToRead
+        frontmatter {
+          title
+          tags
+          cover
+          date
+        }
+      }
+    }
+  }
+}*/

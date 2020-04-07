@@ -3,6 +3,8 @@ const config = require("./data/SiteConfig");
 
 const regexExcludeRobots = /^(?!\/(dev-404-page|404|offline-plugin-app-shell-fallback|tags|categories)).*$/;
 const targetAddress = new URL(process.env.TARGET_ADDRESS || `http://quickenmeal.com`);
+const { isNil } = require('lodash');
+
 
 
 module.exports = {
@@ -58,6 +60,7 @@ module.exports = {
           "gatsby-remark-prismjs",
           "gatsby-remark-copy-linked-files",
           "gatsby-remark-autolink-headers"
+
         ]
       }
     },
@@ -214,6 +217,40 @@ module.exports = {
         params: {
           // In case you want to add any custom content types: https://github.com/jariz/gatsby-plugin-s3/blob/master/recipes/custom-content-type.md
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-lunr',
+      options: {
+        // ISO 639-1 language codes. See https://lunrjs.com/guides/language_support.html for details
+        languages: [{name:'en'}],
+        // Fields to index. If store === true value will be stored in index file.
+        // Attributes for custom indexing logic. See https://lunrjs.com/docs/lunr.Builder.html for details
+        fields: [
+          { name: 'title', store: true, attributes: { boost: 20 } },
+          { name: 'description', store: true },
+          { name: 'content', store: true },
+          { name: 'url', store: true },
+          { name: 'category', store: true },
+          { name: 'tags', store: true },
+
+        ],
+        // A function for filtering nodes. () => true by default
+        filterNodes: (node) => !isNil(node.frontmatter),
+        // How to resolve each field's value for a supported node type
+        resolvers: {
+          // For any node of type MarkdownRemark, list how to resolve the fields' values
+          MarkdownRemark: {
+            title: (node) => node.frontmatter.title,
+            description: (node) => node.frontmatter.description,
+            content: (node) => node.rawMarkdownBody,
+            url: (node) => node.fields.slug,
+            category: (node) => node.frontmatter.category,
+            tags: (node) => node.frontmatter.tags,
+
+          },
+        },
+        filename: 'search_index.json',
       },
     }
   ]

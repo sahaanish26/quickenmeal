@@ -1,16 +1,20 @@
 ---
 templateKey: index_001
-title: "Chingrir Malaikari"
-cover: "Golda-Chingri-Malaikari.png"
+title: "Chilly Prawn"
+cover: "chilly-prawn.png"
 category: "gatsby"
-slug: "Chingrir Malaikari"
 tags:
-
     - prawn
     - curry
-    - starter
+    - main course
+    - lunch/dinner
+    - coconut
+    - non-veg
 
-date: "2018-07-02"
+date: "2020-04-01"
+description: >
+  Guide to prepare one of the most exotic dish out of Prawn.It will definitely
+  be a  finger licking dish.
 ---
 
 Around a year ago, this project was one of the first ones ported to the `v1` version of GatsbyJS.

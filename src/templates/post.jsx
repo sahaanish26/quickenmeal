@@ -54,8 +54,9 @@ export default class PostTemplate extends React.Component {
     if (!post.id) {
       post.id = slug;
     }
-
-    const coverHeight = mobile ? 180 : 350;
+    /*Increasing the non mobile cover height to 500 for better view in the post page
+*/
+    const coverHeight = mobile ? 180 : 500;
     return (
       <Layout location={location}>
         <div className="post-page md-grid md-grid--no-spacing">

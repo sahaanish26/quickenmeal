@@ -20,6 +20,7 @@ const config = {
   userTwitter: "", // Optionally renders "Follow Me" in the UserInfo segment.
   userLocation: "Phoenix,AZ", // User location to display in the author segment.
   userAvatar: "/logos/facebook_profile_image.png", // User avatar to display in the author segment.
+  userAvatarSVG: "/logos/facebook_profile_image.png",
   userDescription:
     "We like to do creative things that brings delight to everyone's life" ,
         // Links to social profiles/projects you want to display in the author segment/navigation bar.
