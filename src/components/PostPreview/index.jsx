@@ -60,7 +60,7 @@ class PostPreview extends Component {
             config.dateFormat
               )}`}
              subtitle={`${postInfo.timeToRead} min read`}
-        >
+        />
         <Link style={{ textDecoration: "none" }} to={postInfo.path}>
           <Media style={{ height: coverHeight, paddingBottom: "0px" }}>
             <PostCover postNode={postInfo} coverHeight={coverHeight} />
