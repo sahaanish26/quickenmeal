@@ -81,11 +81,10 @@ class PostPreview extends Component {
           </tbody>
           {/*<PostTags tags={postInfo.tags} />*/}
         </CardText>
-        <CardActions centered={true} >
-
+        <CardActions >
           <Button icon secondary tooltipLabel="Share" >share</Button>
-          <Button icon secondary tooltipLabel="Click to rate" iconClassName="fa fa-star-o" className="md-cell--center" />
-          <Button icon secondary tooltipLabel="more info" >information</Button>
+          <Button icon secondary tooltipLabel="Rate" iconClassName="fa fa-star-o" className="md-cell--center" />
+          <Button icon secondary tooltipLabel="Info" >information</Button>
         </CardActions>
       </Card>
     );
