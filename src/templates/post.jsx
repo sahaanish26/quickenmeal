@@ -11,10 +11,17 @@ import PostCover from "../components/PostCover";
 import PostInfo from "../components/PostInfo";
 import SocialLinks from "../components/SocialLinks";
 import PostSuggestions from "../components/PostSuggestions";
+import PostIngredients from "../components/PostIngredients";
 import SEO from "../components/SEO";
 import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 import "./post.scss";
+import {
+    TabsContainer,
+    Tabs,
+    Tab,
+    FontIcon, List, ListItemControl, Checkbox, Avatar, Switch, ListItem, Button, Subheader, Divider
+} from 'react-md';
 
 export default class PostTemplate extends React.Component {
   constructor(props) {
@@ -42,6 +49,8 @@ export default class PostTemplate extends React.Component {
     }
   }
 
+
+
   render() {
     const { mobile } = this.state;
     const { location, pageContext } = this.props;
@@ -50,7 +59,6 @@ export default class PostTemplate extends React.Component {
     const postOverlapClass = mobile ? "post-overlap-mobile" : "post-overlap";
     const postNode = this.props.data.markdownRemark;
     const post = postNode.frontmatter;
-
     if (!post.id) {
       post.id = slug;
     }
@@ -70,14 +78,30 @@ export default class PostTemplate extends React.Component {
             coverHeight={coverHeight}
             coverClassName="md-grid md-cell--9 post-cover"
           />
-          <div
+         <div
             className={`md-grid md-cell--9 post-page-contents mobile-fix ${postOverlapClass}`}
           >
             <Card className="md-grid md-cell md-cell--12 post">
               <CardText className="post-body">
                 <h1 className="md-display-2 post-header">{post.title}</h1>
                 <PostInfo postNode={postNode} />
-                <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+                <TabsContainer panelClassName="md-grid" colored >
+                  <Tabs tabId="simple-tab"  mobile={mobile}>
+                    <Tab label="Ingredients" icon={<FontIcon>local_grocery_store</FontIcon>}>\
+                        {/*Recipe ingredient details from the tag ingredients inside the .md file*/}
+                        <PostIngredients ingredients={post.ingredients} />
+                    </Tab>
+                    <Tab label="Direction" icon={<FontIcon>subject</FontIcon>}>
+                      {/*Recipe Direction details  inside the .md file*/}
+                      <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+                    </Tab>
+                    <Tab label="Equipment" icon={<FontIcon>local_dining</FontIcon>}>
+                      <h3>Equipment</h3>
+                    </Tab>
+                  </Tabs>
+                </TabsContainer>
+               {/* taking this content under Direction tab*/}
+                {/*<div dangerouslySetInnerHTML={{ __html: postNode.html }} />*/}
               </CardText>
               <div className="post-meta">
                 <PostTags tags={post.tags} />
@@ -120,6 +144,8 @@ export const pageQuery = graphql`
         date
         category
         tags
+        description
+        ingredients
       }
       fields {
         slug
