@@ -29,7 +29,7 @@ class PostIngredients extends Component {
         console.log(ingredientsListOne);
         console.log(ingredientsListTwo);
         return (
-            <div className="md-grid">
+            <div className="md-grid md-cell md-cell--12">
                 <List className={CLASS_NAME}>
                     {ingredientsListOne.map(ingredient => (
                         <ListItem
