@@ -5,6 +5,7 @@ cover: "chilly-prawn.png"
 category: "gatsby"
 tags:
     - prawn
+      - 500gm-
     - curry
     - main course
     - lunch/dinner
@@ -15,6 +16,26 @@ date: "2020-04-01"
 description: >
   Guide to prepare one of the most exotic dish out of Prawn.It will definitely
   be a  finger licking dish.
+  
+ingredients:
+           - prawn
+             - 500gm
+           - green beans
+             - 200gm
+           - onion
+             - 1lb
+           - tomato
+             - .5lb
+           - coconut milk
+             - 60 fl oz
+           - soya sauce
+             - 2 tbsp
+           - salt
+             - 1tbsp
+           - oil
+             - 100ml
+           - garlic
+             - 2 cloves
 ---
 
 Around a year ago, this project was one of the first ones ported to the `v1` version of GatsbyJS.
@@ -97,5 +118,11 @@ Full feature list:
   - CodeClimate configuration file and badge
 
 NOTE: Take a look at [gatsby-advanced-starter](https://github.com/Vagr9K/gatsby-advanced-starter) if you prefer building UI from scratch and/or only interested in fundamental features.
+ <img src="../static/assets/starter-logo-1024.png" alt="Log" width='20px' height='20px'/>
 
 More information is available on [GitHub repository page](https://github.com/Vagr9K/gatsby-material-starter).
+
+ |                             
+--------- | ------------------------------------------------
+Step1![Screenshot](../static/assets/copy_chilly-prawn.png)| Content from cell 2 and long description then long desription and agaian long and too much long and long again going on and on and will go on
+Step2![Screenshot](../static/assets/copy_chilly-prawn.png)| Content in the second column is short though
