@@ -13,7 +13,8 @@ import PostTags from "../PostTags";
 import PostCover from "../PostCover";
 import config from "../../../data/SiteConfig";
 import "./PostPreview.scss";
-import {CardActions} from "react-md";
+import {CardActions, DialogContainer, TextField} from "react-md";
+import SocialLinks from "../SocialLinks";
 
 
 
@@ -22,7 +23,8 @@ class PostPreview extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mobile: true
+      mobile: true,
+      visible :false
     };
     this.handleResize = this.handleResize.bind(this);
   }
@@ -44,12 +46,26 @@ class PostPreview extends Component {
   }
 
 
+  show = () => {
+    this.setState({ visible: true });
+  };
+
+  hide = () => {
+    this.setState({ visible: false });
+  };
+
   render() {
     const { postInfo } = this.props;
     const { mobile } = this.state;
     const expand = mobile;
+    const slug = postInfo.path;
     /* eslint no-undef: "off" */
     const coverHeight = mobile ? 162 : 320;
+    const { visible } = this.state;
+    const actions = [];
+    actions.push({ secondary: true, children: 'Cancel', onClick: this.hide });
+    actions.push(<Button flat primary onClick={this.hide}>Confirm</Button>);
+
     return (
       <Card key={postInfo.path} raise className="md-grid md-cell md-cell--12">
         <Link style={{ textDecoration: "none" }} to={postInfo.path}>
@@ -82,7 +98,22 @@ class PostPreview extends Component {
           {/*<PostTags tags={postInfo.tags} />*/}
         </CardText>
         <CardActions >
-          <Button icon secondary tooltipLabel="Share" tooltipPosition="top">share</Button>
+          <div>
+          <Button icon secondary tooltipLabel="Share" tooltipPosition="top" onClick={this.show}>share</Button>
+          <DialogContainer
+              id="simple-action-dialog"
+              visible={visible}
+              onHide={this.hide}
+              actions={actions}
+              title={'Share The Recipe of::'+ postInfo.title}
+          >
+            <SocialLinks
+                postPath={slug}
+                postInfo={postInfo}
+                mobile={mobile}
+            />
+          </DialogContainer>
+          </div>
           <Button icon secondary tooltipLabel="Rate" iconClassName="fa fa-star-o" className="md-cell--center" tooltipPosition="top"/>
           <Button icon secondary tooltipLabel="Info" tooltipPosition="top" >information</Button>
         </CardActions>
