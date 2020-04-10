@@ -60,7 +60,7 @@ class PostPreview extends Component {
     const expand = mobile;
     const slug = postInfo.path;
     /* eslint no-undef: "off" */
-    const coverHeight = mobile ? 162 : 320;
+    const coverHeight = mobile ? 162 : 240;
     const { visible } = this.state;
     const actions = [];
     actions.push({ secondary: true, children: 'Close', onClick: this.hide });
@@ -71,7 +71,7 @@ class PostPreview extends Component {
         <Link style={{ textDecoration: "none" }} to={postInfo.path}>
           <Media style={{ height: coverHeight, paddingBottom: "0px" }}>
             <PostCover postNode={postInfo} coverHeight={coverHeight} />
-            <MediaOverlay>
+            <MediaOverlay >
               <CardTitle  title={postInfo.title}  >
                 <Button raised secondary className="md-cell--right">
                   Cook
