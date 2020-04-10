@@ -5,7 +5,6 @@ cover: "chilly-prawn.png"
 category: "gatsby"
 tags:
     - prawn
-      - 500gm-
     - curry
     - main course
     - lunch/dinner
