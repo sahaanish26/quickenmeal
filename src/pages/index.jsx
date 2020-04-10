@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { graphql } from "gatsby";
+import {graphql, Link} from "gatsby";
 import Layout from "../layout";
 import PostListing from "../components/PostListing";
 import SEO from "../components/SEO";
@@ -10,7 +10,7 @@ class Index extends React.Component {
   render() {
     const postEdges = this.props.data.allMarkdownRemark.edges;
     return (
-      <Layout location={this.props.location} title="Home">
+      <Layout location={this.props.location} title={<Link style={{ textDecoration: "none" }} to={"/"}>Home</Link>} >
         <div className="index-container">
           <Helmet>
             <title>{config.siteTitleAlt}</title>

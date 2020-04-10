@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { graphql } from "gatsby";
+import {graphql, Link} from "gatsby";
 import Card from "react-md/lib/Cards";
 import CardText from "react-md/lib/Cards/CardText";
 import Layout from "../layout";
@@ -66,7 +66,8 @@ export default class PostTemplate extends React.Component {
 */
     const coverHeight = mobile ? 180 : 500;
     return (
-      <Layout location={location}>
+        /*Keeping title header as home for all pages*/
+      <Layout location={location} title={<Link style={{ textDecoration: "none" }} to={"/"}>Home</Link>}>
         <div className="post-page md-grid md-grid--no-spacing">
           <Helmet>
             <title>{`${post.title} | ${config.siteTitle}`}</title>

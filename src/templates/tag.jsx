@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { graphql } from "gatsby";
+import {graphql, Link} from "gatsby";
 import Layout from "../layout";
 import PostListing from "../components/PostListing";
 import config from "../../data/SiteConfig";
@@ -13,7 +13,9 @@ export default class TagTemplate extends React.Component {
     return (
       <Layout
         location={this.props.location}
-        title={`Tagged in ${tag.charAt(0).toUpperCase() + tag.slice(1)}`}
+        title={<Link style={{ textDecoration: "none" }} to={"/"}>Home</Link>}
+       /* Keeping title header as Home for all pages
+        title={`Tagged in ${tag.charAt(0).toUpperCase() + tag.slice(1)}`}*/
       >
         <div className="tag-container">
           <Helmet>
