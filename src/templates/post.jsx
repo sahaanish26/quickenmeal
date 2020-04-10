@@ -88,7 +88,7 @@ export default class PostTemplate extends React.Component {
                 <PostInfo postNode={postNode} />
                 <TabsContainer panelClassName="md-grid" colored >
                   <Tabs tabId="simple-tab"  mobile={mobile}>
-                    <Tab label="Ingredients" icon={<FontIcon>local_grocery_store</FontIcon>}>\
+                    <Tab label="Ingredients" icon={<FontIcon>local_grocery_store</FontIcon>}>
                         {/*Recipe ingredient details from the tag ingredients inside the .md file*/}
                         <PostIngredients ingredients={post.ingredients} />
                     </Tab>
