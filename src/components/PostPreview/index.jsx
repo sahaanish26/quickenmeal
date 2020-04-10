@@ -63,9 +63,9 @@ class PostPreview extends Component {
     const coverHeight = mobile ? 162 : 320;
     const { visible } = this.state;
     const actions = [];
-    actions.push({ secondary: true, children: 'Cancel', onClick: this.hide });
-    actions.push(<Button flat primary onClick={this.hide}>Confirm</Button>);
-
+    actions.push({ secondary: true, children: 'Close', onClick: this.hide });
+    /*actions.push(<Button flat secondary onClick={this.hide}>Confirm</Button>);
+*/
     return (
       <Card key={postInfo.path} raise className="md-grid md-cell md-cell--12">
         <Link style={{ textDecoration: "none" }} to={postInfo.path}>
