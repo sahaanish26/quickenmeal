@@ -7,6 +7,8 @@ import {
   RedditShareButton,
     WhatsappShareButton,
     EmailShareButton,
+    InstapaperShareButton,
+    PinterestShareButton,
   FacebookShareCount,
   RedditShareCount,
   FacebookIcon,
@@ -15,7 +17,9 @@ import {
   LinkedinIcon,
   RedditIcon,
     WhatsappIcon,
-    EmailIcon
+    EmailIcon,
+    InstapaperIcon,
+    PinterestIcon
 } from "react-share";
 import urljoin from "url-join";
 import config from "../../../data/SiteConfig";
@@ -44,12 +48,7 @@ class SocialLinks extends Component {
 
     return (
       <div className="social-links">
-        <RedditShareButton url={url} title={post.title}>
-          <RedditIcon round size={iconSize} />
-          <RedditShareCount url={url}>
-            {count => renderShareCount(count)}
-          </RedditShareCount>
-        </RedditShareButton>
+
         <TwitterShareButton url={url} title={post.title}>
           <TwitterIcon round size={iconSize} />
         </TwitterShareButton>
@@ -72,9 +71,21 @@ class SocialLinks extends Component {
           <WhatsappShareButton url={url} title={post.title}>
               <WhatsappIcon round size={iconSize} />
           </WhatsappShareButton>
+          <PinterestShareButton url={url} media={url}>
+              <PinterestIcon round size={iconSize} />
+          </PinterestShareButton>
           <EmailShareButton url={url} subject={post.title} body="Got this great recipe link:">
               <EmailIcon round size={iconSize} />
           </EmailShareButton>
+          <RedditShareButton url={url} title={post.title}>
+              <RedditIcon round size={iconSize} />
+              <RedditShareCount url={url}>
+                  {count => renderShareCount(count)}
+              </RedditShareCount>
+          </RedditShareButton>
+          <InstapaperShareButton url={url} title={post.title} describtion={post.description}>
+              <InstapaperIcon round size={iconSize} />
+          </InstapaperShareButton>
 
       </div>
     );
