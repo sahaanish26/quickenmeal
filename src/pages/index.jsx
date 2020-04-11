@@ -48,6 +48,7 @@ export const pageQuery = graphql`
             date
             description
             ingredients
+            equipments
           }
         }
       }
