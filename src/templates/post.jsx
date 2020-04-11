@@ -12,6 +12,7 @@ import PostInfo from "../components/PostInfo";
 import SocialLinks from "../components/SocialLinks";
 import PostSuggestions from "../components/PostSuggestions";
 import PostIngredients from "../components/PostIngredients";
+import PostEquipments from "../components/PostEquipments";
 import SEO from "../components/SEO";
 import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
@@ -96,8 +97,9 @@ export default class PostTemplate extends React.Component {
                       {/*Recipe Direction details  inside the .md file*/}
                       <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
                     </Tab>
-                    <Tab label="Equipment" icon={<FontIcon>local_dining</FontIcon>}>
-                      <h3>Equipment</h3>
+                    <Tab label="Equipments" icon={<FontIcon>local_dining</FontIcon>}>
+                      {/*Recipe equipments details from the tag ingredients inside the .md file*/}
+                      <PostEquipments equipments={post.equipments} />
                     </Tab>
                   </Tabs>
                 </TabsContainer>
@@ -147,6 +149,7 @@ export const pageQuery = graphql`
         tags
         description
         ingredients
+        equipments
       }
       fields {
         slug
