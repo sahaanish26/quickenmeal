@@ -3,9 +3,6 @@ import Card from "react-md/lib/Cards/Card";
 import CardTitle from "react-md/lib/Cards/CardTitle";
 import Button from "react-md/lib/Buttons";
 import Avatar from "react-md/lib/Avatars";
-import SVGIcon from "react-md/lib/SVGIcons";
-import CardText from "react-md/lib/Cards/CardText";
-import FontIcon from "react-md/lib/FontIcons";
 import { Link } from "gatsby";
 import moment from "moment";
 import Media, { MediaOverlay } from "react-md/lib/Media";
@@ -44,7 +41,6 @@ class PostPreview extends Component {
       this.setState({ mobile: true });
     }
   }
-
 
   show = () => {
     this.setState({ visible: true });
@@ -113,7 +109,6 @@ class PostPreview extends Component {
              <Button icon secondary tooltipLabel="Rate" iconClassName="fa fa-star-o"  tooltipPosition="right"/>
            </CardActions>
          </CardTitle>
-
         {/*<CardText>
           <tbody>
           <tr><td><Avatar src={config.userAvatarSVG} role="presentation" className="md-cell--left"/></td>
@@ -127,5 +122,4 @@ class PostPreview extends Component {
     );
   }
 }
-
 export default PostPreview;
