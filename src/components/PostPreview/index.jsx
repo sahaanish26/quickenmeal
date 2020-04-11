@@ -88,35 +88,41 @@ class PostPreview extends Component {
           )}`}
           subtitle={`${postInfo.timeToRead} min read`}
         />*/}
-        <CardText expandable={expand}>
+         <CardTitle
+          avatar={<Avatar src={config.userAvatarSVG} role="presentation" />}
+          title={postInfo.description}
+        >
+           <CardActions stacked={true} className="md-cell--right">
+             <Button icon secondary tooltipLabel="Info" tooltipPosition="bottom" >information</Button>
+             <div>
+               <Button icon secondary tooltipLabel="Share" tooltipPosition="bottom" onClick={this.show}>share</Button>
+               <DialogContainer
+                   id="simple-action-dialog"
+                   visible={visible}
+                   onHide={this.hide}
+                   actions={actions}
+                   title={'Share The Recipe of::'+ postInfo.title}
+               >
+                 <SocialLinks
+                     postPath={slug}
+                     postInfo={postInfo}
+                     mobile={mobile}
+                 />
+               </DialogContainer>
+             </div>
+             <Button icon secondary tooltipLabel="Rate" iconClassName="fa fa-star-o"  tooltipPosition="bottom"/>
+           </CardActions>
+         </CardTitle>
+
+        {/*<CardText>
           <tbody>
           <tr><td><Avatar src={config.userAvatarSVG} role="presentation" className="md-cell--left"/></td>
             <tr> &nbsp;</tr>
           <td> {postInfo.description}</td>
           </tr>
           </tbody>
-          {/*<PostTags tags={postInfo.tags} />*/}
-        </CardText>
-        <CardActions >
-          <div>
-          <Button icon secondary tooltipLabel="Share" tooltipPosition="top" onClick={this.show}>share</Button>
-          <DialogContainer
-              id="simple-action-dialog"
-              visible={visible}
-              onHide={this.hide}
-              actions={actions}
-              title={'Share The Recipe of::'+ postInfo.title}
-          >
-            <SocialLinks
-                postPath={slug}
-                postInfo={postInfo}
-                mobile={mobile}
-            />
-          </DialogContainer>
-          </div>
-          <Button icon secondary tooltipLabel="Rate" iconClassName="fa fa-star-o" className="md-cell--center" tooltipPosition="top"/>
-          <Button icon secondary tooltipLabel="Info" tooltipPosition="top" >information</Button>
-        </CardActions>
+          <PostTags tags={postInfo.tags} />
+        </CardText>*/}
       </Card>
     );
   }
