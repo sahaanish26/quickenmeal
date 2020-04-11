@@ -93,9 +93,9 @@ class PostPreview extends Component {
           title={postInfo.description}
         >
            <CardActions stacked={true} className="md-cell--right">
-             <Button icon secondary tooltipLabel="Info" tooltipPosition="bottom" >information</Button>
+             <Button icon secondary tooltipLabel="Info" tooltipPosition="right" >information</Button>
              <div>
-               <Button icon secondary tooltipLabel="Share" tooltipPosition="bottom" onClick={this.show}>share</Button>
+               <Button icon secondary tooltipLabel="Share" tooltipPosition="right" onClick={this.show}>share</Button>
                <DialogContainer
                    id="simple-action-dialog"
                    visible={visible}
@@ -110,7 +110,7 @@ class PostPreview extends Component {
                  />
                </DialogContainer>
              </div>
-             <Button icon secondary tooltipLabel="Rate" iconClassName="fa fa-star-o"  tooltipPosition="bottom"/>
+             <Button icon secondary tooltipLabel="Rate" iconClassName="fa fa-star-o"  tooltipPosition="right"/>
            </CardActions>
          </CardTitle>
 
