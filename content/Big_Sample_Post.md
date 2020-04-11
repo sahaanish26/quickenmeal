@@ -29,6 +29,12 @@ ingredients:
              - 100ml
            - garlic
              - 2 cloves
+equipments:
+          - prawn
+            - 500gm
+          - green beans
+            - 200gm
+
 ---
 
 # NOTE: This "post" is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.

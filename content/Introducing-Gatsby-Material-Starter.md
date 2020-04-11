@@ -35,6 +35,13 @@ ingredients:
              - 100ml
            - garlic
              - 2 cloves
+          
+equipments:
+          - prawn
+            - 500gm
+          - green beans
+            - 200gm
+                         
 ---
 
 Around a year ago, this project was one of the first ones ported to the `v1` version of GatsbyJS.
