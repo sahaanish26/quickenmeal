@@ -8,16 +8,18 @@ import {Link} from "gatsby";
 const InfoIcon = () => <FontIcon secondary >info</FontIcon>;
 const CLASS_NAME = 'md-cell md-cell--6 md-paper md-paper--1';
 
-function extractQuantity(equipment) {
+function extractURL(equipment) {
     console.log("inside extractQuantity ");
     let n = equipment.indexOf("-");
-    return  equipment.slice(n);
+    console.log(equipment.slice(n + 1));
+    return  equipment.slice(n + 1);
 }
 
 function extractName(equipment) {
     console.log("inside extractName ");
     let n = equipment.indexOf("-");
-    return  equipment.slice(0,n);
+    return equipment.slice(0,n);
+
 }
 
 
@@ -31,10 +33,7 @@ class PostEquipments extends Component {
         const equipmentsListTwo=equipments.slice(ceil(equipments.length/2));
         console.log(equipmentsListOne);
         console.log(equipmentsListTwo);
-        function buy(url) {
-            console.log("inside buy function");
-            window.open(url, '_blank');
-        }
+
         return (
             <div className="md-grid md-cell md-cell--12">
                 <List className={CLASS_NAME}>
@@ -43,9 +42,9 @@ class PostEquipments extends Component {
                             leftAvatar={<FontIcon secondary >chevron_right</FontIcon>}
                             /*rightIcon={<InfoIcon />}*/
                             primaryText={extractName(equipment)}
-                            secondaryText={extractQuantity(equipment)}
+                            /*secondaryText={extractQuantity(equipment)}*/
                         >
-                            <a href="https://www.w3docs.com/?tag=quickenmeal-20" target="_blank"><Button flat secondary swapTheming>BUY</Button></a>
+                            <a href={extractURL(equipment)} target="_blank"><Button flat secondary swapTheming>BUY</Button></a>
                             </ListItem>
                     ))}
                 </List>
@@ -55,9 +54,10 @@ class PostEquipments extends Component {
                             leftAvatar={<Avatar suffix="blue" icon={<FontIcon>chevron_right</FontIcon>} />}
                             /*rightIcon={<InfoIcon />}*/
                             primaryText={extractName(equipment)}
-                            secondaryText={extractQuantity(equipment)}
+                            /*secondaryText={extractQuantity(equipment)}*/
                         >
-                        <a href="https://www.w3docs.com/?tag=quickenmeal-20" target="_blank"><Button flat secondary swapTheming>BUY</Button></a>
+
+                            <a href={extractURL(equipment)} target="_blank"><Button flat secondary swapTheming>BUY</Button></a>
                         </ListItem>
                     ))}
                 </List>
