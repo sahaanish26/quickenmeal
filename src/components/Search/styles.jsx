@@ -110,7 +110,7 @@ export const HitsWrapper = styled.div`
     color: black;
     h3 {
       color: white;
-      background: #0fc5b6; /*${props => props.theme.lightGreen};*/
+      background: #9E9E9E; /*${props => props.theme.lightGreen};*/
       padding: 0.1em 0.4em;
       border-radius: 0.2em; /*${props => props.theme.smallBorderRadius};*/
       margin-bottom: 0.3em;
