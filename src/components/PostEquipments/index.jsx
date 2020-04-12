@@ -1,6 +1,7 @@
 import React, {Component} from "react";
-import {Avatar, FontIcon, List, ListItem, Tab} from "react-md";
+import {Avatar, Button, FontIcon, List, ListItem, Tab} from "react-md";
 import {ceil} from "lodash/math";
+import {Link} from "gatsby";
 
 
 
@@ -20,6 +21,8 @@ function extractName(equipment) {
 }
 
 
+
+
 class PostEquipments extends Component {
     render() {
         const { equipments } = this.props;
@@ -28,26 +31,34 @@ class PostEquipments extends Component {
         const equipmentsListTwo=equipments.slice(ceil(equipments.length/2));
         console.log(equipmentsListOne);
         console.log(equipmentsListTwo);
+        function buy(url) {
+            console.log("inside buy function");
+            window.open(url, '_blank');
+        }
         return (
             <div className="md-grid md-cell md-cell--12">
                 <List className={CLASS_NAME}>
                     {equipmentsListOne.map(equipment => (
                         <ListItem
                             leftAvatar={<FontIcon secondary >chevron_right</FontIcon>}
-                            rightIcon={<InfoIcon />}
+                            /*rightIcon={<InfoIcon />}*/
                             primaryText={extractName(equipment)}
                             secondaryText={extractQuantity(equipment)}
-                        />
+                        >
+                            <a href="https://www.w3docs.com/?tag=quickenmeal-20" target="_blank"><Button flat secondary swapTheming>BUY</Button></a>
+                            </ListItem>
                     ))}
                 </List>
                 <List className={CLASS_NAME}>
                     {equipmentsListTwo.map(equipment => (
                         <ListItem
                             leftAvatar={<Avatar suffix="blue" icon={<FontIcon>chevron_right</FontIcon>} />}
-                            rightIcon={<InfoIcon />}
+                            /*rightIcon={<InfoIcon />}*/
                             primaryText={extractName(equipment)}
                             secondaryText={extractQuantity(equipment)}
-                        />
+                        >
+                        <a href="https://www.w3docs.com/?tag=quickenmeal-20" target="_blank"><Button flat secondary swapTheming>BUY</Button></a>
+                        </ListItem>
                     ))}
                 </List>
                {/* For Testing
