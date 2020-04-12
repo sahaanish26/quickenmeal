@@ -124,11 +124,30 @@ Full feature list:
   - CodeClimate configuration file and badge
 
 NOTE: Take a look at [gatsby-advanced-starter](https://github.com/Vagr9K/gatsby-advanced-starter) if you prefer building UI from scratch and/or only interested in fundamental features.
- <img src="../static/assets/starter-logo-1024.png" alt="Log" width='20px' height='20px'/>
+ <img src="../static/assets/logo-48.png" alt="Log" width='200px' height='200px'/>
 
 More information is available on [GitHub repository page](https://github.com/Vagr9K/gatsby-material-starter).
 
  |                             
---------- | ------------------------------------------------
-Step1![Screenshot](../static/assets/copy_chilly-prawn.png)| Content from cell 2 and long description then long desription and agaian long and too much long and long again going on and on and will go on
-Step2![Screenshot](../static/assets/copy_chilly-prawn.png)| Content in the second column is short though
+:----:| ------------------------------------------------
+Step1   <img src="../static/assets/chilly-prawn.png" alt="Logo" width="40" height="60" border="10"/> | Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more
+Step2   ![Screenshot](../static/assets/chilly-prawn.png)        | Content in the second column is short though
+
+
+
+<table>
+  <col  width="20%">
+  <col  width="80%">
+  <tr>
+    <td >  <img src="../static/assets/Golda-Chingri-Malaikari.png" alt="Logo" width="20" height="20"/> </td>
+    <td>Content in the second column is short though</td>
+  </tr>
+  <tr>
+    <td> <img src="../static/assets/Golda-Chingri-Malaikari.png" alt="Logo"/>
+    <td>Content in the second column is short though</td>
+  </tr>
+  <tr>
+      <td> <img src="../static/assets/chilly-prawn_1.png" alt="Logo"/>
+      <td>Content in the second column is short though</td>
+    </tr>
+</table>
