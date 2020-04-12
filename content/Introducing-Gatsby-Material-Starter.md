@@ -38,9 +38,9 @@ ingredients:
           
 equipments:
           - prawn
-            - 500gm
+            - https://www.w3docs.com/?tag=quickenmeal-20
           - green beans
-            - 200gm
+            - https://www.w3docs.com/?tag=quickenmeal-20
                          
 ---
 
