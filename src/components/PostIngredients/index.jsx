@@ -43,57 +43,13 @@ class PostIngredients extends Component {
                 <List className={CLASS_NAME}>
                     {ingredientsListTwo.map(ingredient => (
                         <ListItem
-                            leftAvatar={<Avatar suffix="blue" icon={<FontIcon>chevron_right</FontIcon>} />}
+                            leftAvatar={<FontIcon secondary>chevron_right</FontIcon>}
                             rightIcon={<InfoIcon />}
                             primaryText={extractName(ingredient)}
                             secondaryText={extractQuantity(ingredient)}
                         />
                     ))}
                 </List>
-               {/* For Testing
-                <List className={CLASS_NAME}>
-                    <ListItem
-                        leftAvatar={<Avatar suffix="blue" icon={<FontIcon>chevron_right</FontIcon>} />}
-                        rightIcon={<InfoIcon />}
-                        primaryText="Vacation itinerary"
-                        secondaryText="Jan 20, 2014"
-                    />
-                    <ListItem
-                        leftAvatar={<Avatar suffix="amber" icon={<FontIcon>chevron_right</FontIcon>} />}
-                        rightIcon={<InfoIcon />}
-                        primaryText="Kitchen remodel"
-                        secondaryText="Jan 10, 2014"
-                    />
-                    <ListItem
-                        leftAvatar={<Avatar icon={<FontIcon>chevron_right</FontIcon>} />}
-                        rightIcon={<InfoIcon />}
-                        primaryText="money deposit"
-                        secondaryText="Jan 10, 2014"
-                    />
-                </List>
-                <List className={CLASS_NAME}>
-                    <ListItem
-                        leftAvatar={<Avatar suffix="blue" icon={<FontIcon>chevron_right</FontIcon>} />}
-                        rightIcon={<InfoIcon />}
-                        primaryText="Vacation itinerary"
-                        secondaryText="Jan 20, 2014"
-                    />
-                    <ListItem
-                        leftAvatar={<Avatar suffix="amber" icon={<FontIcon>chevron_right</FontIcon>} />}
-                        rightIcon={<InfoIcon />}
-                        primaryText="Kitchen remodel"
-                        secondaryText="Jan 10, 2014"
-                    />
-                    <ListItem
-                        leftAvatar={<Avatar icon={<FontIcon>chevron_right</FontIcon>} />}
-                        rightIcon={<InfoIcon />}
-                        primaryText="money deposit"
-                        secondaryText="Jan 10, 2014"
-                    />
-
-
-
-                </List>*/}
             </div>
         );
     }

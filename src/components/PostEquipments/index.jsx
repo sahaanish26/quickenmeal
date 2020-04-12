@@ -51,7 +51,7 @@ class PostEquipments extends Component {
                 <List className={CLASS_NAME}>
                     {equipmentsListTwo.map(equipment => (
                         <ListItem
-                            leftAvatar={<Avatar suffix="blue" icon={<FontIcon>chevron_right</FontIcon>} />}
+                            leftAvatar={<FontIcon secondary>chevron_right</FontIcon>}
                             /*rightIcon={<InfoIcon />}*/
                             primaryText={extractName(equipment)}
                             /*secondaryText={extractQuantity(equipment)}*/
