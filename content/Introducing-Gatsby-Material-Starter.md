@@ -14,7 +14,34 @@ tags:
 date: "2020-04-01"
 description: >
   Guide to prepare one of the most exotic dish out of Prawn.It will definitely
-  be a  finger licking dish.
+  be a  finger licking dish.trying a bit longer description and even more long
+  
+ingredients:
+           - prawn
+             - 500gm
+           - green beans
+             - 200gm
+           - onion
+             - 1lb
+           - tomato
+             - .5lb
+           - coconut milk
+             - 60 fl oz
+           - soya sauce
+             - 2 tbsp
+           - salt
+             - 1tbsp
+           - oil
+             - 100ml
+           - garlic
+             - 2 cloves
+          
+equipments:
+          - prawn
+            - https://www.w3docs.com/?tag=quickenmeal-20
+          - green beans
+            - https://www.w3docs.com/?tag=quickenmeal-20
+                         
 ---
 
 Around a year ago, this project was one of the first ones ported to the `v1` version of GatsbyJS.
@@ -97,5 +124,30 @@ Full feature list:
   - CodeClimate configuration file and badge
 
 NOTE: Take a look at [gatsby-advanced-starter](https://github.com/Vagr9K/gatsby-advanced-starter) if you prefer building UI from scratch and/or only interested in fundamental features.
+ <img src="../static/assets/logo-48.png" alt="Log" width='200px' height='200px'/>
 
 More information is available on [GitHub repository page](https://github.com/Vagr9K/gatsby-material-starter).
+
+ |                             
+:----:| ------------------------------------------------
+Step1   <img src="../static/assets/chilly-prawn.png" alt="Logo" width="40" height="60" border="10"/> | Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more Content from cell 2 and long description and bit bigger then even bigger then a bit and a more some more
+Step2   ![Screenshot](../static/assets/chilly-prawn.png)        | Content in the second column is short though
+
+
+
+<table>
+  <col  width="20%">
+  <col  width="80%">
+  <tr>
+    <td >  <img src="../static/assets/Golda-Chingri-Malaikari.png" alt="Logo" width="20" height="20"/> </td>
+    <td>Content in the second column is short though</td>
+  </tr>
+  <tr>
+    <td> <img src="../static/assets/Golda-Chingri-Malaikari.png" alt="Logo"/>
+    <td>Content in the second column is short though</td>
+  </tr>
+  <tr>
+      <td> <img src="../static/assets/chilly-prawn_1.png" alt="Logo"/>
+      <td>Content in the second column is short though</td>
+    </tr>
+</table>

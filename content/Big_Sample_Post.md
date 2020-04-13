@@ -10,6 +10,31 @@ tags:
 date: "2020-03-31"    
 description: >
   To do the description.
+ingredients:
+           - prawn
+             - 500gm
+           - green beans
+             - 200gm
+           - onion
+             - 1lb
+           - tomato
+             - .5lb
+           - coconut milk
+             - 60 fl oz
+           - soya sauce
+             - 2 tbsp
+           - salt
+             - 1tbsp
+           - oil
+             - 100ml
+           - garlic
+             - 2 cloves
+equipments:
+          - prawn
+            - 500gm
+          - green beans
+            - 200gm
+
 ---
 
 # NOTE: This "post" is based on [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) and is meant to test styling of Markdown generated documents.
