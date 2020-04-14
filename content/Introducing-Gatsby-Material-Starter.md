@@ -2,7 +2,7 @@
 templateKey: index_001
 title: "Chilly Prawn"
 cover: "chilly-prawn.png"
-category: "gatsby"
+category: "indo-chinese"
 tags:
     - prawn
     - curry
