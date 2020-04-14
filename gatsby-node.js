@@ -76,6 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   const tagSet = new Set();
+  const tagMap = new Map();
   const categorySet = new Set();
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
@@ -100,9 +101,17 @@ exports.createPages = async ({ graphql, actions }) => {
   postsEdges.forEach((edge, index) => {
     if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach(tag => {
+
         tagSet.add(tag);
+        if(tagMap.has(tag)){
+        tagMap.set(tag,tagMap.get(tag)+1);
+        }
+        else{tagMap.set(tag,1);}
+
+
       });
     }
+
 
     if (edge.node.frontmatter.category) {
       categorySet.add(edge.node.frontmatter.category);
@@ -125,15 +134,24 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
+  console.log(tagMap);
 
   tagSet.forEach(tag => {
+    const postsPerPage = siteConfig.postsPerPage;
+    const numPages = Math.ceil(tagMap.get(tag) / postsPerPage);
+    console.log(tag +":"+ numPages);
+
     createPage({
       path: `/tags/${_.kebabCase(tag)}/`,
       component: tagPage,
       context: {
-        tag
+        tag,
+        limit:postsPerPage,
+        skip:1
       }
     });
+
+
   });
   categorySet.forEach(category => {
     createPage({
