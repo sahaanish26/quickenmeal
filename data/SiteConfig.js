@@ -57,7 +57,8 @@ const config = {
     },
   ],
   copyright: "Copyright © 2020. Quicken Meal" ,
-  gatsbyLogo:"/logos/gatsbylogoscreenshot.png"// Copyright string for the footer of the website and RSS feed.
+  gatsbyLogo:"/logos/gatsbylogoscreenshot.png", // Copyright string for the footer of the website and RSS feed.
+  postsPerPage:3
 };
 
 // Validate
