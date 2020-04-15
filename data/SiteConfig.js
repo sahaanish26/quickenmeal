@@ -58,7 +58,8 @@ const config = {
   ],
   copyright: "Copyright © 2020. Quicken Meal" ,
   gatsbyLogo:"/logos/gatsbylogoscreenshot.png", // Copyright string for the footer of the website and RSS feed.
-  postsPerPage:3
+  postsPerPage:3,
+  postsPerIndexPage :10 //keeping it higher value since index page will mostly have the latest posts
 };
 
 // Validate

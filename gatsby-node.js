@@ -43,10 +43,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  const indexPage = path.resolve("src/templates/index.jsx");
   const postPage = path.resolve("src/templates/post.jsx");
   const tagPage = path.resolve("src/templates/tag.jsx");
   const categoryPage = path.resolve("src/templates/category.jsx");
   const postsPerPage = siteConfig.postsPerPage;
+  const postsPerIndexPage = siteConfig.postsPerIndexPage;
+
 
   const markdownQueryResult = await graphql(
     `
@@ -83,11 +86,26 @@ exports.createPages = async ({ graphql, actions }) => {
   const tagMap = new Map();
   //Same reason as tags
   const categorySet = new Set();
-
   //Same reason as tags
   const categoryMap = new Map();
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
+
+  const numIndexPages = Math.ceil(postsEdges.length / postsPerIndexPage);
+
+  Array.from({ length: numIndexPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/` : `/${i + 1}`,
+      component: indexPage,
+      context: {
+        limit: postsPerIndexPage,
+        skip: i * postsPerIndexPage,
+        numberOfPages: numIndexPages,
+        currentPage: i + 1,
+      },
+    });
+  });
+
 
   postsEdges.sort((postA, postB) => {
     const dateA = moment(
