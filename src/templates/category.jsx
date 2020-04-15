@@ -8,7 +8,15 @@ import config from "../../data/SiteConfig";
 export default class CategoryTemplate extends React.Component {
   render() {
     const { category } = this.props.pageContext;
+    const {categoryBasePath} = this.props.pageContext;
     const postEdges = this.props.data.allMarkdownRemark.edges;
+    const { currentPage, numberOfPages } = this.props.pageContext;
+    const isFirst = currentPage === 1;
+    const isLast = currentPage === numberOfPages ;
+    const prevPageSub =  currentPage - 1 === 1 ? "" : (currentPage - 1).toString();
+    const prevPage = categoryBasePath+ prevPageSub ;
+    const nextPage = categoryBasePath + (currentPage + 1).toString();
+
     return (
       <Layout
         location={this.props.location}
@@ -27,6 +35,21 @@ export default class CategoryTemplate extends React.Component {
             />
           </Helmet>
           <PostListing postEdges={postEdges} />
+          {!isFirst && (
+              <Link to={prevPage} rel="prev">
+                ← Previous Page
+              </Link>
+          )}
+          {Array.from({ length: numberOfPages }, (_, i) => (
+              <Link key={`pagination-number${i+1}`} to={`${categoryBasePath}${i === 0 ? "" : i+1 }`}>
+                {i+1}
+              </Link>
+          ))}
+          {!isLast && (
+              <Link to={nextPage} rel="next">
+                Next Page →
+              </Link>
+          )}
         </div>
       </Layout>
     );
@@ -34,9 +57,10 @@ export default class CategoryTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query CategoryPage($category: String) {
+  query CategoryPage($category: String, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      limit: 1000
+      limit: $limit
+      skip: $skip
       sort: { fields: [fields___date], order: DESC }
       filter: { frontmatter: { category: { eq: $category } } }
     ) {
@@ -55,7 +79,7 @@ export const pageQuery = graphql`
             cover
             date
             description
-           ingredients
+            ingredients
           }
         }
       }
