@@ -8,7 +8,15 @@ import config from "../../data/SiteConfig";
 export default class TagTemplate extends React.Component {
   render() {
     const { tag } = this.props.pageContext;
+    const {tagBasePath} = this.props.pageContext;
     const postEdges = this.props.data.allMarkdownRemark.edges;
+    const { currentPage, numberOfPages } = this.props.pageContext;
+    const isFirst = currentPage === 1;
+    const isLast = currentPage === numberOfPages ;
+    const prevPageSub =  currentPage - 1 === 1 ? "" : (currentPage - 1).toString();
+    const prevPage = tagBasePath+ prevPageSub ;
+    const nextPage = tagBasePath + (currentPage + 1).toString();
+
 
     return (
       <Layout
@@ -23,6 +31,21 @@ export default class TagTemplate extends React.Component {
             <link rel="canonical" href={`${config.siteUrl}/tags/${tag}`} />
           </Helmet>
           <PostListing postEdges={postEdges} />
+          {!isFirst && (
+              <Link to={prevPage} rel="prev">
+                ← Previous Page
+              </Link>
+          )}
+          {Array.from({ length: numberOfPages }, (_, i) => (
+              <Link key={`pagination-number${i+1}`} to={`${tagBasePath}${i === 0 ? "" : i+1 }`}>
+                {i+1}
+              </Link>
+          ))}
+          {!isLast && (
+              <Link to={nextPage} rel="next">
+                Next Page →
+              </Link>
+          )}
         </div>
       </Layout>
     );
