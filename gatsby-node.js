@@ -75,9 +75,16 @@ exports.createPages = async ({ graphql, actions }) => {
     throw markdownQueryResult.errors;
   }
 
+  //This Set contains the unique tags (since tags can be same across multiple posts)
   const tagSet = new Set();
+  //This map contains the occurence number of each tag across all posts.Since page numbers for each tag will be based on the number of
+  // posts having the tag
   const tagMap = new Map();
+  //Same reason as tags
   const categorySet = new Set();
+
+  //Same reason as tags
+  const categoryMap = new Map();
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
 
@@ -138,21 +145,30 @@ exports.createPages = async ({ graphql, actions }) => {
 
   tagSet.forEach(tag => {
     const postsPerPage = siteConfig.postsPerPage;
+    //getting the pages from tagmap and not from number of posts. Since posts under each tag need to be paginated.
     const numPages = Math.ceil(tagMap.get(tag) / postsPerPage);
+    const tagBasePath = `/tags/${_.kebabCase(tag)}/`;
     console.log(tag +":"+ numPages);
+    Array.from({ length: numPages }).forEach((_, i) => {
+      /*The path for each page will be /<number>, with an exception for /0, that page will use / instead.*/
+      const tagSubPath = i === 0 ? `` : `${i+1}` ;
+      createPage({
+        path: tagBasePath + tagSubPath,
+        component: tagPage,
+        context: {
+          tag,
+          tagBasePath,
+          limit:postsPerPage,
+          skip: i * postsPerPage,
+          numberOfPages: numPages,
+          currentPage: i +1 ,
 
-    createPage({
-      path: `/tags/${_.kebabCase(tag)}/`,
-      component: tagPage,
-      context: {
-        tag,
-        limit:postsPerPage,
-        skip:1
-      }
+        }
+      });
+
     });
-
-
   });
+
   categorySet.forEach(category => {
     createPage({
       path: `/categories/${_.kebabCase(category)}/`,
