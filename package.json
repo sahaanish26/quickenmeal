@@ -46,6 +46,7 @@
     "react-twitter-widgets": "^1.7.1",
     "styled-components": "^5.0.1",
     "styled-icons": "^10.2.1",
+    "styled-media-query": "^2.1.2",
     "url-join": "^4.0.1"
   },
   "devDependencies": {

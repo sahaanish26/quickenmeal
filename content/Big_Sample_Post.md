@@ -1,11 +1,13 @@
 ---
 title: "Big Test"
 cover: "5.jpg"
-category: "moar"
+category: "indo-chinese"
 slug: "Big-Sample_Test"
 tags:
     - test
     - huge
+    - pagination
+    - curry
     
 date: "2020-03-31"    
 description: >

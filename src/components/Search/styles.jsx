@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { Search } from 'styled-icons/fa-solid'
 import { Algolia } from 'styled-icons/fa-brands'
+import { Clear } from 'styled-icons/material-outlined'
 
 
 export const Root = styled.div`
@@ -13,6 +14,15 @@ export const Root = styled.div`
 export const SearchIcon = styled(Search)`
   width: 1em;
   pointer-events: none;
+  
+  
+`
+
+
+export const ClearIcon = styled(Clear)`
+display: ${props => (props.show ? `grid` : `none`)};
+  width: 1.2em;
+  pointer-events: auto;
   
 `
 
@@ -46,16 +56,30 @@ const expanded = css`
   background: white;
   width: 30em;
   height:2em;
-  margin-left: -1.6em;
-  padding-left: 1.6em;
-  + ${SearchIcon} {
+  
+  margin-right: -1.6em;
+  padding-right: 1.6em;
+ 
+  + ${ClearIcon} {
     margin: 0.3em; 
     color: grey;  
   }
   /*adding placeholder tag to change the color*/ 
   ::placeholder {
     color: grey;
+  
   }
+`
+
+const test = css`
+  //background: white;
+  width: 30em;
+  height:2em;
+  + ${SearchIcon} {
+    margin: 0.3em; 
+    color: grey;  
+  }
+
 `
 
 export const Input = styled.input`
@@ -70,13 +94,15 @@ export const Input = styled.input`
 
 export const Form = styled.form`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   align-items: center;
+  ${props => (props.test ? test : test)};
+
 `
 
 export const HitsWrapper = styled.div`
   display: ${props => (props.show ? `grid` : `none`)};
-  max-height: 80vh;
+  max-height: 80vh;  /*If this is reduced then height of search result box will reduce and automatically scrollbar will appear for large results*/
   overflow: scroll;
   z-index: 2;
   position: absolute;

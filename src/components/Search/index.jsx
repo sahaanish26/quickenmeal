@@ -2,7 +2,7 @@ import React, { Component } from 'react' ;
 import { Link } from 'gatsby' ;
 import "./Search.scss" ;
 import{ListGroup} from 'react-bootstrap';
-import { Form, Input, SearchIcon,HitsWrapper,Root } from './styles'
+import { Form, Input, SearchIcon,HitsWrapper,Root,ClearIcon } from './styles'
 
 
 
@@ -12,7 +12,8 @@ class Search extends Component {
 
     state = {
         query: '',
-        results: []
+        results: [],
+        clear:false
     }
 
     /*render() {
@@ -45,7 +46,9 @@ class Search extends Component {
             <div className="searchForm">
                 <Root>
                 <Form>
+                    <SearchIcon />
                 <Input
+                    ref="searchTextHolder"
                     type="text"
                     placeholder="Search for Recipes here"
                     aria-label="Search"
@@ -54,7 +57,7 @@ class Search extends Component {
                     onMouseLeave={e => e.target.blur()}
 
                 />
-                <SearchIcon />
+                <ClearIcon show={this.state.clear || this.state.query!=''} onClick={this.erase}/>
                 </Form>
                 {/*<ListGroup variant="flush" className="searchResults">
                     {this.state.results.map(post => (
@@ -96,11 +99,20 @@ class Search extends Component {
         const results = window.__LUNR__.en.index.search(query)
        return results.map(({ ref }) => window.__LUNR__.en.store[ref])
     }
-
+  /* Method to search*/
     search = event => {
+        const clear =true
         const query = event.target.value
         const results = this.getSearchResults(query)
-        this.setState({ results, query })
+        this.setState({ results, query,clear })
+    }
+   /* Method to clean the search box on click of clear*/
+
+    erase = event => {
+        const clear =false
+        const query=''
+        this.refs.searchTextHolder.value = '';
+        this.setState({ query,clear })
     }
 }
 

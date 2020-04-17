@@ -43,9 +43,13 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
+  const indexPage = path.resolve("src/templates/index.jsx");
   const postPage = path.resolve("src/templates/post.jsx");
   const tagPage = path.resolve("src/templates/tag.jsx");
   const categoryPage = path.resolve("src/templates/category.jsx");
+  const postsPerPage = siteConfig.postsPerPage;
+  const postsPerIndexPage = siteConfig.postsPerIndexPage;
+
 
   const markdownQueryResult = await graphql(
     `
@@ -75,10 +79,33 @@ exports.createPages = async ({ graphql, actions }) => {
     throw markdownQueryResult.errors;
   }
 
+  //This Set contains the unique tags (since tags can be same across multiple posts)
   const tagSet = new Set();
+  //This map contains the occurence number of each tag across all posts.Since page numbers for each tag will be based on the number of
+  // posts having the tag
+  const tagMap = new Map();
+  //Same reason as tags
   const categorySet = new Set();
+  //Same reason as tags
+  const categoryMap = new Map();
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
+
+  const numIndexPages = Math.ceil(postsEdges.length / postsPerIndexPage);
+
+  Array.from({ length: numIndexPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/` : `/${i + 1}`,
+      component: indexPage,
+      context: {
+        limit: postsPerIndexPage,
+        skip: i * postsPerIndexPage,
+        numberOfPages: numIndexPages,
+        currentPage: i + 1,
+      },
+    });
+  });
+
 
   postsEdges.sort((postA, postB) => {
     const dateA = moment(
@@ -101,11 +128,21 @@ exports.createPages = async ({ graphql, actions }) => {
     if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach(tag => {
         tagSet.add(tag);
+        if(tagMap.has(tag)){
+        tagMap.set(tag,tagMap.get(tag)+1);
+        }
+        else{tagMap.set(tag,1);}
+
       });
     }
 
+
     if (edge.node.frontmatter.category) {
       categorySet.add(edge.node.frontmatter.category);
+      if(categoryMap.has(edge.node.frontmatter.category)){
+        categoryMap.set(edge.node.frontmatter.category,categoryMap.get(edge.node.frontmatter.category)+1);
+      }
+      else{categoryMap.set(edge.node.frontmatter.category,1);}
     }
 
     const nextID = index + 1 < postsEdges.length ? index + 1 : 0;
@@ -125,23 +162,68 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     });
   });
+  console.log(tagMap);
+  console.log(categoryMap);
 
   tagSet.forEach(tag => {
-    createPage({
-      path: `/tags/${_.kebabCase(tag)}/`,
-      component: tagPage,
-      context: {
-        tag
-      }
+    //const postsPerPage = siteConfig.postsPerPage;
+    //getting the pages from tagmap and not from number of posts. Since posts under each tag need to be paginated.
+    const numPages = Math.ceil(tagMap.get(tag) / postsPerPage);
+    const tagBasePath = `/tags/${_.kebabCase(tag)}/`;
+    console.log(tag +":"+ numPages);
+    Array.from({ length: numPages }).forEach((_, i) => {
+      /*The path for each page will be /<number>, with an exception for /0, that page will use / instead.*/
+      const tagSubPath = i === 0 ? `` : `${i+1}` ;
+      createPage({
+        path: tagBasePath + tagSubPath,
+        component: tagPage,
+        context: {
+          tag,
+          tagBasePath,
+          limit:postsPerPage,
+          skip: i * postsPerPage,
+          numberOfPages: numPages,
+          currentPage: i +1 ,
+        }
+      });
+
     });
   });
+
   categorySet.forEach(category => {
-    createPage({
+    //const postsPerPage = siteConfig.postsPerPage;
+    //getting the pages from categoryMap and not from number of posts. Since posts under each category need to be paginated.
+    const numPages = Math.ceil(categoryMap.get(category) / postsPerPage);
+    const categoryBasePath = `/categories/${_.kebabCase(category)}/`;
+    console.log(category +":"+ numPages);
+
+    Array.from({ length: numPages }).forEach((_, i) => {
+      /*The path for each page will be /<number>, with an exception for /0, that page will use / instead.*/
+      const categorySubPath = i === 0 ? `` : `${i+1}` ;
+      createPage({
+        path: categoryBasePath + categorySubPath,
+        component: categoryPage,
+        context: {
+          category,
+          categoryBasePath,
+          limit:postsPerPage,
+          skip: i * postsPerPage,
+          numberOfPages: numPages,
+          currentPage: i +1 ,
+        }
+      });
+
+    });
+
+      /*createPage({
       path: `/categories/${_.kebabCase(category)}/`,
       component: categoryPage,
       context: {
         category
       }
     });
+      */
+
+
   });
 };

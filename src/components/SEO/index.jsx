@@ -13,18 +13,24 @@ class SEO extends Component {
     if (postSEO) {
       const postMeta = postNode.frontmatter;
       ({ title } = postMeta);
-      description = postMeta.description
-        ? postMeta.description
-        : postNode.excerpt;
+      description = postMeta.description ;
+ /*       ? postMeta.description
+        : postNode.description;*/
       image = postMeta.cover;
-      postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
+      /*postURL = urljoin(config.siteUrl, config.pathPrefix, postPath);
+*/
+      //Taking out path prefix from url
+      postURL = urljoin(config.siteUrl,postPath);
     } else {
       title = config.siteTitle;
       description = config.siteDescription;
       image = config.siteLogo;
     }
     image = urljoin(config.siteUrl, config.pathPrefix, image);
-    const blogURL = urljoin(config.siteUrl, config.pathPrefix);
+    /*const blogURL = urljoin(config.siteUrl, config.pathPrefix);*/
+    //taking out path prefix from blog url
+    const blogURL = urljoin(config.siteUrl);
+
     const schemaOrgJSONLD = [
       {
         "@context": "http://schema.org",

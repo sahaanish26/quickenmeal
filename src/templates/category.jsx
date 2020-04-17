@@ -4,11 +4,16 @@ import {graphql, Link} from "gatsby";
 import PostListing from "../components/PostListing";
 import Layout from "../layout";
 import config from "../../data/SiteConfig";
+import Pagination from "../components/Pagination";
 
 export default class CategoryTemplate extends React.Component {
   render() {
     const { category } = this.props.pageContext;
+    const {categoryBasePath} = this.props.pageContext;
     const postEdges = this.props.data.allMarkdownRemark.edges;
+    const { currentPage, numberOfPages } = this.props.pageContext;
+
+
     return (
       <Layout
         location={this.props.location}
@@ -27,6 +32,7 @@ export default class CategoryTemplate extends React.Component {
             />
           </Helmet>
           <PostListing postEdges={postEdges} />
+          <Pagination from="category" basePath={categoryBasePath} numberOfPages={numberOfPages} currentPage={currentPage} />
         </div>
       </Layout>
     );
@@ -34,9 +40,10 @@ export default class CategoryTemplate extends React.Component {
 }
 
 export const pageQuery = graphql`
-  query CategoryPage($category: String) {
+  query CategoryPage($category: String, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
-      limit: 1000
+      limit: $limit
+      skip: $skip
       sort: { fields: [fields___date], order: DESC }
       filter: { frontmatter: { category: { eq: $category } } }
     ) {
@@ -55,7 +62,7 @@ export const pageQuery = graphql`
             cover
             date
             description
-           ingredients
+            ingredients
           }
         }
       }
