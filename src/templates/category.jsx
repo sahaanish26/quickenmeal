@@ -4,6 +4,7 @@ import {graphql, Link} from "gatsby";
 import PostListing from "../components/PostListing";
 import Layout from "../layout";
 import config from "../../data/SiteConfig";
+import Pagination from "../components/Pagination";
 
 export default class CategoryTemplate extends React.Component {
   render() {
@@ -11,11 +12,7 @@ export default class CategoryTemplate extends React.Component {
     const {categoryBasePath} = this.props.pageContext;
     const postEdges = this.props.data.allMarkdownRemark.edges;
     const { currentPage, numberOfPages } = this.props.pageContext;
-    const isFirst = currentPage === 1;
-    const isLast = currentPage === numberOfPages ;
-    const prevPageSub =  currentPage - 1 === 1 ? "" : (currentPage - 1).toString();
-    const prevPage = categoryBasePath+ prevPageSub ;
-    const nextPage = categoryBasePath + (currentPage + 1).toString();
+
 
     return (
       <Layout
@@ -35,21 +32,7 @@ export default class CategoryTemplate extends React.Component {
             />
           </Helmet>
           <PostListing postEdges={postEdges} />
-          {!isFirst && (
-              <Link to={prevPage} rel="prev">
-                ← Previous Page
-              </Link>
-          )}
-          {Array.from({ length: numberOfPages }, (_, i) => (
-              <Link key={`pagination-number${i+1}`} to={`${categoryBasePath}${i === 0 ? "" : i+1 }`}>
-                {i+1}
-              </Link>
-          ))}
-          {!isLast && (
-              <Link to={nextPage} rel="next">
-                Next Page →
-              </Link>
-          )}
+          <Pagination from="category" basePath={categoryBasePath} numberOfPages={numberOfPages} currentPage={currentPage} />
         </div>
       </Layout>
     );
