@@ -12,7 +12,7 @@ const config = {
   siteFBAppID: "182535625111526t", // FB Application ID for using app insights
   siteGATrackingID: "UA-161952605-1", // Tracking code ID for google analytics.
   siteVerification:"ld0WW9ivPWz55IGmdc9GHRRMlL0ZzGZ6WnmHYbzKvHo", //Site verification for google ld0WW9ivPWz55IGmdc9GHRRMlL0ZzGZ6WnmHYbzKvHo
-  disqusShortname: "TBD", // Disqus shortname.
+  disqusShortname: "QM", // Disqus shortname.
   dateFromFormat: "YYYY-MM-DD", // Date format used in the frontmatter.
   dateFormat: "MM/DD/YYYY", // Date format for display.
   userName: "Quicken Meal", // Username to display in the author segment.
@@ -59,7 +59,7 @@ const config = {
   copyright: "Copyright © 2020. Quicken Meal" ,
   gatsbyLogo:"/logos/gatsbylogoscreenshot.png", // Copyright string for the footer of the website and RSS feed.
   postsPerPage:3,
-  postsPerIndexPage :10 //keeping it higher value since index page will mostly have the latest posts
+  postsPerIndexPage :6 //keeping it higher value since index page will mostly have the latest posts
 };
 
 // Validate
