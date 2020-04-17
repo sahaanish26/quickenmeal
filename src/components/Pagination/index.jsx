@@ -21,14 +21,14 @@ class Pagination extends Component {
                 <PaginationWrapper>
                 {!isFirst && (
                     <Link to={prevPage} rel="prev">
-                        ← Previous Page
+                        <Button   raised primary  style={{ fontWeight: 'bold' }}>  ← Previous Page</Button>
                     </Link>
                 )}
                 {Array.from({ length: numberOfPages }, (_, i) => (
 
                     <Link key={`pagination-number${i+1}`} to={`${basePath}${i === 0 ? "" : i+1 }`}>
                         {/*<Avatar iconSized >{i+1}</Avatar>*/}
-                        <Button  flat secondary  swapTheming={currentPage === i+1} style={{ fontWeight: currentPage === i+1 ? 'bold' : null }}>{i+1}</Button>
+                        <Button  flat  primary={currentPage!==i+1}  secondary={currentPage===i+1} swapTheming  style={{ fontWeight: currentPage === i+1 ? 'bold' : 'bold' }}>{i+1}</Button>
                     </Link>
                     /*              <Link key={`pagination-number${i+1}`} to={`${tagBasePath}${i === 0 ? "" : i+1 }`}>
                                     {i+1}
@@ -36,7 +36,7 @@ class Pagination extends Component {
                 ))}
                 {!isLast && (
                     <Link to={nextPage} rel="next">
-                        Next Page →
+                        <Button   raised primary  style={{ fontWeight: 'bold' }}>Next Page →</Button>
                     </Link>
                 )}
                 </PaginationWrapper>
