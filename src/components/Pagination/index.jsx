@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import config from "../../../data/SiteConfig";
 import {Link} from "gatsby";
 import Button from "react-md/lib/Buttons";
-import Helmet from "react-helmet";
-import PostListing from "../PostListing";
+import { PaginationWrapper} from './styles'
+
 
 
 class Pagination extends Component {
@@ -19,6 +18,7 @@ class Pagination extends Component {
 
         return (
             <div>
+                <PaginationWrapper>
                 {!isFirst && (
                     <Link to={prevPage} rel="prev">
                         ← Previous Page
@@ -28,7 +28,7 @@ class Pagination extends Component {
 
                     <Link key={`pagination-number${i+1}`} to={`${basePath}${i === 0 ? "" : i+1 }`}>
                         {/*<Avatar iconSized >{i+1}</Avatar>*/}
-                        <Button raised={currentPage === i+1} secondary style={{ fontWeight: currentPage === i+1 ? 'bold' : null }}>{i+1}</Button>
+                        <Button  flat secondary  swapTheming={currentPage === i+1} style={{ fontWeight: currentPage === i+1 ? 'bold' : null }}>{i+1}</Button>
                     </Link>
                     /*              <Link key={`pagination-number${i+1}`} to={`${tagBasePath}${i === 0 ? "" : i+1 }`}>
                                     {i+1}
@@ -39,6 +39,7 @@ class Pagination extends Component {
                         Next Page →
                     </Link>
                 )}
+                </PaginationWrapper>
             </div>
         );
     }
