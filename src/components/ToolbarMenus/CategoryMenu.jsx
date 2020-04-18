@@ -17,6 +17,7 @@ const MENU_ITEMS = [
      {
         primaryText: 'Cuisine',
          tileClassName: ICON_TILE_CLASS_NAME,
+         /*nestedListStyle: { width: 240 },*/
         nestedItems: [
             {
             primaryText: "indo-chinese",
@@ -24,12 +25,14 @@ const MENU_ITEMS = [
             to: "/categories/indo-chinese/",
             tileClassName: ICON_TILE_CLASS_NAME,
             },
+            DIVIDER,
             {
                 primaryText: "bengali",
                 component: Link,
                 to: "/categories/bengali/",
                 tileClassName: ICON_TILE_CLASS_NAME,
             },
+            DIVIDER,
             {
                 primaryText: "mughlai",
                 component: Link,
