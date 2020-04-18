@@ -13,63 +13,113 @@ const DIVIDER = { divider: true };
 const ICON_TILE_CLASS_NAME = 'menus__google-docs__menu-icon';
 
 const MENU_ITEMS = [
+
      {
         primaryText: 'Cuisine',
          tileClassName: ICON_TILE_CLASS_NAME,
-        nestedItems: [ {
+        nestedItems: [
+            {
             primaryText: "indo-chinese",
             component: Link,
             to: "/categories/indo-chinese/",
             tileClassName: ICON_TILE_CLASS_NAME,
-        }, 'Spreadsheet', 'Presentation', 'Form', 'Drawing', 'From template...'],
+            },
+            {
+                primaryText: "bengali",
+                component: Link,
+                to: "/categories/bengali/",
+                tileClassName: ICON_TILE_CLASS_NAME,
+            },
+            {
+                primaryText: "mughlai",
+                component: Link,
+                to: "/categories/mughlai/",
+                tileClassName: ICON_TILE_CLASS_NAME,
+            },
+            ],
     },
+    DIVIDER,
      {
         primaryText: 'Ingredient',
          tileClassName: ICON_TILE_CLASS_NAME,
-         nestedItems: [ {
-             primaryText: "indo-chinese",
+         nestedItems: [
+             {
+             primaryText: "shrimp/prawn",
              component: Link,
-             to: "/categories/indo-chinese/",
+             to: "/tags/prawn",
              tileClassName: ICON_TILE_CLASS_NAME,
-         }, 'Spreadsheet', 'Presentation', 'Form', 'Drawing', 'From template...']
+             },
+             {
+                 primaryText: "chicken",
+                 component: Link,
+                 to: "/tags/chicken",
+                 tileClassName: ICON_TILE_CLASS_NAME,
+             },
+             {
+                 primaryText: "fish",
+                 component: Link,
+                 to: "/tags/fish",
+                 tileClassName: ICON_TILE_CLASS_NAME,
+             },
+             {
+                 primaryText: "goat",
+                 component: Link,
+                 to: "/tags/goat",
+                 tileClassName: ICON_TILE_CLASS_NAME,
+             },
+         ]
      },
+    DIVIDER,
      {
-        primaryText: 'Move to...',
+        primaryText: 'Type',
         tileClassName: ICON_TILE_CLASS_NAME,
-        leftIcon: <FontIcon>folder</FontIcon>,
-    }, {
-        primaryText: 'Move to trash',
-        tileClassName: ICON_TILE_CLASS_NAME,
-        leftIcon: <FontIcon>delete</FontIcon>,
-    }, DIVIDER, {
-        primaryText: 'See revision history',
-        rightIcon: `+H`,
-    }, {
-        primaryText: 'Language',
-        nestedItems: languages,
-        nestedListStyle: { width: 240 },
-    }, DIVIDER, {
-        primaryText: 'Download as...',
         nestedItems: [
-            'Microsoft Word (.docx)',
-            'OpenDocument Format (.odt)',
-            'Rich Text Format (.rtf)',
-            'PDF Document (.pdf)',
-            'Plain Text (.txt)',
-            'Web Page (.html, zipped)',
-            'EPUB Publication (.epub)',
-        ],
+            {
+            primaryText: "lunch",
+            component: Link,
+            to: "/tags/lunch/",
+            tileClassName: ICON_TILE_CLASS_NAME,
+            },
+            {
+                primaryText: "breakfast",
+                component: Link,
+                to: "/tags/breakfast/",
+                tileClassName: ICON_TILE_CLASS_NAME,
+            },
+            {
+                primaryText: "snacks",
+                component: Link,
+                to: "/tags/breakfast/",
+                tileClassName: ICON_TILE_CLASS_NAME,
+            },
+                       ]
     },
-    'Publish to the web...',
-    'Email collaborators...',
-    'Email as attachment...', DIVIDER,
-    'Document Details...',
-    'Page setup...', {
-        primaryText: 'Print',
-        tileClassName: ICON_TILE_CLASS_NAME,
-        leftIcon: <FontIcon>print</FontIcon>,
-        rightIcon: `+P`,
+    DIVIDER,
+     {
+        primaryText: 'Theme',
+         tileClassName: ICON_TILE_CLASS_NAME,
+         nestedItems: [
+             {
+                 primaryText: "birthday",
+                 component: Link,
+                 to: "/tags/birthday/",
+                 tileClassName: ICON_TILE_CLASS_NAME,
+             },
+             {
+                 primaryText: "durgapuja",
+                 component: Link,
+                 to: "/tags/durgapuja/",
+                 tileClassName: ICON_TILE_CLASS_NAME,
+             },
+             {
+                 primaryText: "New Year",
+                 component: Link,
+                 to: "/tags/new-year/",
+                 tileClassName: ICON_TILE_CLASS_NAME,
+             },
+         ]
     },
+
 ];
 
 const CategoryMenu = props => <DocumentMenu {...props} id="Category" text="Category" menuItems={MENU_ITEMS} />;
