@@ -105,6 +105,7 @@ export default class DocumentMenu extends PureComponent {
                     className={cn('menus__google-docs__menu', {
                         'md-paper md-paper--2': visible,
                     })}
+                    style={{ fontWeight: '500', fontSize : "18px" }}
                 >
                     {text}
                 </AccessibleFakeInkedButton>

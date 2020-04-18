@@ -2,7 +2,7 @@
 @import '~react-md/src/scss/react-md';
 
 .menus__google-docs {
-  $menu-h-padding: 20px;
+  $menu-h-padding: 16px;
   $menu-v-padding: 8px;
   $toolbar-height: 80px;
   $account-font-size: 12px;
@@ -69,6 +69,7 @@
   }
 
   &__menu__list {
+    //controls the height of the menu list
     max-height: 88vh;
     overflow: auto;
   }
