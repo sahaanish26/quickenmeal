@@ -4,14 +4,13 @@ import ToolbarActions from "../ToolbarActions";
 import Footer from "../Footer";
 import GetNavList from "./NavList";
 import "./Navigation.scss";
-import {bem} from "react-md";
-import Link from "../Link";
-import navItems from '../../constants/navItems';
+import ToolbarChildren from "../ToolbarChildren";
 
 class Navigation extends Component {
   render() {
     const { children, config, LocalTitle } = this.props;
     const footerLinks = LocalTitle !== "About";
+
     return (
       <NavigationDrawer
           drawerId="main-navigation"
@@ -28,6 +27,7 @@ class Navigation extends Component {
         mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
         tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
         desktopDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
+          toolbarChildren={<ToolbarChildren/>}
         toolbarActions={<ToolbarActions config={config} />}
       >
         <div className="main-container">{children}</div>
