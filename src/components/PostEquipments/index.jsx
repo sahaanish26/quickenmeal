@@ -9,14 +9,14 @@ const InfoIcon = () => <FontIcon secondary >info</FontIcon>;
 const CLASS_NAME = 'md-cell md-cell--6 md-paper md-paper--1';
 
 function extractURL(equipment) {
-    console.log("inside extractQuantity ");
+
     let n = equipment.indexOf("-");
-    console.log(equipment.slice(n + 1));
+
     return  equipment.slice(n + 1);
 }
 
 function extractName(equipment) {
-    console.log("inside extractName ");
+
     let n = equipment.indexOf("-");
     return equipment.slice(0,n);
 
@@ -28,11 +28,11 @@ function extractName(equipment) {
 class PostEquipments extends Component {
     render() {
         const { equipments } = this.props;
-        console.log(equipments);
+
         const equipmentsListOne=equipments.slice(0,ceil(equipments.length/2));
         const equipmentsListTwo=equipments.slice(ceil(equipments.length/2));
-        console.log(equipmentsListOne);
-        console.log(equipmentsListTwo);
+
+
 
         return (
             <div className="md-grid md-cell md-cell--12">
