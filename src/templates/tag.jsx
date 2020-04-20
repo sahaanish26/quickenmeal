@@ -12,12 +12,13 @@ export default class TagTemplate extends React.Component {
     const { tag } = this.props.pageContext;
     const {tagBasePath} = this.props.pageContext;
     const postEdges = this.props.data.allMarkdownRemark.edges;
-    const { currentPage, numberOfPages } = this.props.pageContext;
+    const { currentPage, numberOfPages,categorySet, tagSet } = this.props.pageContext;
 
     return (
       <Layout
         location={this.props.location}
         title={<Link style={{ textDecoration: "none" }} to={"/"}>Home</Link>}
+        categorySet={categorySet} tagSet={tagSet}
        /* Keeping title header as Home for all pages
         title={`Tagged in ${tag.charAt(0).toUpperCase() + tag.slice(1)}`}*/
       >

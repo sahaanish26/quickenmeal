@@ -47,6 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const postPage = path.resolve("src/templates/post.jsx");
   const tagPage = path.resolve("src/templates/tag.jsx");
   const categoryPage = path.resolve("src/templates/category.jsx");
+  const aboutPage = path.resolve("src/templates/about.jsx");
   const postsPerPage = siteConfig.postsPerPage;
   const postsPerIndexPage = siteConfig.postsPerIndexPage;
 
@@ -91,22 +92,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const postsEdges = markdownQueryResult.data.allMarkdownRemark.edges;
 
-  const numIndexPages = Math.ceil(postsEdges.length / postsPerIndexPage);
-
-  Array.from({ length: numIndexPages }).forEach((_, i) => {
-    createPage({
-      path: i === 0 ? `/` : `/${i + 1}`,
-      component: indexPage,
-      context: {
-        limit: postsPerIndexPage,
-        skip: i * postsPerIndexPage,
-        numberOfPages: numIndexPages,
-        currentPage: i + 1,
-      },
-    });
-  });
-
-
   postsEdges.sort((postA, postB) => {
     const dateA = moment(
       postA.node.frontmatter.date,
@@ -124,12 +109,13 @@ exports.createPages = async ({ graphql, actions }) => {
     return 0;
   });
 
+  //creating set with unique list of tags and categories
   postsEdges.forEach((edge, index) => {
     if (edge.node.frontmatter.tags) {
       edge.node.frontmatter.tags.forEach(tag => {
         tagSet.add(tag);
         if(tagMap.has(tag)){
-        tagMap.set(tag,tagMap.get(tag)+1);
+          tagMap.set(tag,tagMap.get(tag)+1);
         }
         else{tagMap.set(tag,1);}
 
@@ -145,6 +131,13 @@ exports.createPages = async ({ graphql, actions }) => {
       else{categoryMap.set(edge.node.frontmatter.category,1);}
     }
 
+
+  });
+
+ // create the post pages . creating them in a seperate for loop since target and categoryset is required elsewhere as well
+  postsEdges.forEach((edge, index) => {
+
+
     const nextID = index + 1 < postsEdges.length ? index + 1 : 0;
     const prevID = index - 1 >= 0 ? index - 1 : postsEdges.length - 1;
     const nextEdge = postsEdges[nextID];
@@ -158,13 +151,33 @@ exports.createPages = async ({ graphql, actions }) => {
         nexttitle: nextEdge.node.frontmatter.title,
         nextslug: nextEdge.node.fields.slug,
         prevtitle: prevEdge.node.frontmatter.title,
-        prevslug: prevEdge.node.fields.slug
+        prevslug: prevEdge.node.fields.slug,
+        categorySet : categorySet,
+        tagSet: tagSet
       }
     });
   });
-  console.log(tagMap);
-  console.log(categoryMap);
 
+
+  //create the index page(s)
+  const numIndexPages = Math.ceil(postsEdges.length / postsPerIndexPage);
+  Array.from({ length: numIndexPages }).forEach((_, i) => {
+    createPage({
+      path: i === 0 ? `/` : `/${i + 1}`,
+      component: indexPage,
+      context: {
+        limit: postsPerIndexPage,
+        skip: i * postsPerIndexPage,
+        numberOfPages: numIndexPages,
+        currentPage: i + 1,
+        categorySet : categorySet,
+        tagSet: tagSet
+
+      },
+    });
+  });
+
+  //create the tag page(s)
   tagSet.forEach(tag => {
     //const postsPerPage = siteConfig.postsPerPage;
     //getting the pages from tagmap and not from number of posts. Since posts under each tag need to be paginated.
@@ -184,12 +197,15 @@ exports.createPages = async ({ graphql, actions }) => {
           skip: i * postsPerPage,
           numberOfPages: numPages,
           currentPage: i +1 ,
+          categorySet : categorySet,
+          tagSet: tagSet
         }
       });
 
     });
   });
 
+  // create the category page(s)
   categorySet.forEach(category => {
     //const postsPerPage = siteConfig.postsPerPage;
     //getting the pages from categoryMap and not from number of posts. Since posts under each category need to be paginated.
@@ -210,6 +226,8 @@ exports.createPages = async ({ graphql, actions }) => {
           skip: i * postsPerPage,
           numberOfPages: numPages,
           currentPage: i +1 ,
+          categorySet : categorySet,
+          tagSet: tagSet
         }
       });
 
@@ -226,4 +244,15 @@ exports.createPages = async ({ graphql, actions }) => {
 
 
   });
+
+  //create the about page
+  createPage({
+    path: '/about',
+    component: aboutPage,
+    context: {
+      categorySet : categorySet,
+      tagSet: tagSet
+    }
+  });
+
 };

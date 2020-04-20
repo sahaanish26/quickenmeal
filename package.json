@@ -47,7 +47,10 @@
     "styled-components": "^5.0.1",
     "styled-icons": "^10.2.1",
     "styled-media-query": "^2.1.2",
-    "url-join": "^4.0.1"
+    "url-join": "^4.0.1",
+    "prop-types": "latest",
+    "classnames": "latest",
+    "@isamrish/gatsby-plugin-google-adsense": "^1.0.2"
   },
   "devDependencies": {
     "cli-glob": "^0.1.0",

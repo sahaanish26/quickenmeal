@@ -10,10 +10,10 @@ import Pagination from "../components/Pagination";
 class Index extends React.Component {
   render() {
     const postEdges = this.props.data.allMarkdownRemark.edges;
-    const { currentPage, numberOfPages } = this.props.pageContext
+    const { currentPage, numberOfPages ,categorySet,tagSet } = this.props.pageContext
 
     return (
-      <Layout location={this.props.location} title={<Link style={{ textDecoration: "none" }} to={"/"}>Home</Link>} >
+      <Layout location={this.props.location} title={<Link style={{ textDecoration: "none" }} to={"/"}>Home</Link>} categorySet={categorySet} tagSet={tagSet}>
         <div className="index-container">
           <Helmet>
             <title>{config.siteTitleAlt}</title>
