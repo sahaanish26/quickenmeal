@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import CategoryMenu from './CategoryMenu';
 import "./Menu.scss";
 
 
-const ToolbarMenus = () => (
-    //taking out UL className="menus__google-docs__menus" otherwise the "category" menu was coming under HOME
-    // in the toolbar of navigation
-    <ul >
-        <CategoryMenu />
-    </ul>
+class ToolbarMenus extends Component{
 
-);
+render() {
+    //const { config } = this.props;
+    const { categorySet,tagSet } = this.props;
+    return (
+        <ul >
+            <CategoryMenu categorySet={categorySet} tagSet={tagSet}/>
+        </ul>
+    );
+}
+}
+
 
 export default ToolbarMenus;

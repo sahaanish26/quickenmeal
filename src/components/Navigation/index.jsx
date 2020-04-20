@@ -5,10 +5,11 @@ import Footer from "../Footer";
 import GetNavList from "./NavList";
 import "./Navigation.scss";
 import ToolbarChildren from "../ToolbarChildren";
+import Layout from "../../layout";
 
 class Navigation extends Component {
   render() {
-    const { children, config, LocalTitle } = this.props;
+    const { children, config, LocalTitle,categorySet ,tagSet} = this.props;
     const footerLinks = LocalTitle !== "About";
 
     return (
@@ -27,7 +28,7 @@ class Navigation extends Component {
         mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
         tabletDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
         desktopDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
-          toolbarChildren={<ToolbarChildren/>}
+          toolbarChildren={<ToolbarChildren categorySet={categorySet} tagSet={tagSet}/>}
         toolbarActions={<ToolbarActions config={config} />}
       >
         <div className="main-container">{children}</div>

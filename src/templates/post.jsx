@@ -54,8 +54,8 @@ export default class PostTemplate extends React.Component {
 
   render() {
     const { mobile } = this.state;
-    const { location, pageContext } = this.props;
-    const { slug, nexttitle, nextslug, prevtitle, prevslug } = pageContext;
+    const { location, pageContext}  = this.props;
+    const { slug, nexttitle, nextslug, prevtitle, prevslug,categorySet, tagSet } = pageContext;
     const expanded = !mobile;
     const postOverlapClass = mobile ? "post-overlap-mobile" : "post-overlap";
     const postNode = this.props.data.markdownRemark;
@@ -68,7 +68,7 @@ export default class PostTemplate extends React.Component {
     const coverHeight = mobile ? 180 : 500;
     return (
         /*Keeping title header as home for all pages*/
-      <Layout location={location} title={<Link style={{ textDecoration: "none" }} to={"/"}>Home</Link>}>
+      <Layout location={location} title={<Link style={{ textDecoration: "none" }} to={"/"}>Home</Link>} categorySet={categorySet} tagSet={tagSet}>
         <div className="post-page md-grid md-grid--no-spacing">
           <Helmet>
             <title>{`${post.title} | ${config.siteTitle}`}</title>
