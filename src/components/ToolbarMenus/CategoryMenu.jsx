@@ -136,7 +136,7 @@ class CategoryMenu extends Component{
         const cuisineNestedItems = [];
         const typeNestedItems =[];
         const { categorySet,tagSet } = this.props;
-        console.log("categorySet inside CategoryMenu "+categorySet);
+
         function createMenu() {
             categorySet.forEach(category => {
                 cuisineNestedItems.push({
@@ -146,7 +146,7 @@ class CategoryMenu extends Component{
                     tileClassName: ICON_TILE_CLASS_NAME
                 });
             });
-            console.log("cuisineNestedItems inside CategoryMenu "+cuisineNestedItems);
+
             tagSet.forEach(tag => {
                 typeNestedItems.push({
                     primaryText: tag,
@@ -155,7 +155,6 @@ class CategoryMenu extends Component{
                     tileClassName: ICON_TILE_CLASS_NAME
                 });
             });
-            console.log("typeNestedItems inside CategoryMenu "+typeNestedItems);
 
             MENU_ITEMS_CLONE.push(
                 {primaryText: 'Cuisine',
@@ -168,8 +167,6 @@ class CategoryMenu extends Component{
                     nestedItems:typeNestedItems
                 },
                 )
-            console.log("MENU_ITEMS_CLONE inside CategoryMenu "+MENU_ITEMS_CLONE.toString());
-            console.log("MENU_ITEMS inside CategoryMenu "+MENU_ITEMS);
 
 
             return MENU_ITEMS_CLONE ;
