@@ -71,6 +71,13 @@ module.exports = {
       }
     },
     {
+      resolve: `@isamrish/gatsby-plugin-google-adsense`,
+      options: {
+        googleAdClientId: "ca-pub-5944195357875250",
+        head: false // Optional
+      }
+    },
+    {
       resolve: "gatsby-plugin-nprogress",
       options: {
         color: "#c62828"
